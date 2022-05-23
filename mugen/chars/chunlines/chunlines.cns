@@ -1,0 +1,77 @@
+[Data]
+life = 700
+attack = 100
+defence = 90
+fall.defence_up = 0
+liedown.time = 23
+airjuggle = 15
+sparkno = S7000
+guard.sparkno = S7002
+KO.echo = 1
+volume = 32
+power = 3000
+IntPersistIndex = 56
+;Int variables used
+;Var(59) : AI flag
+;Var(58) : Energy Value
+;Var(57) : Max Energy Value
+;Var(56) : Pow value
+;Var(55) : Combo flag
+;Var(54) : Last move type verifier
+;          Checks if the last move in the
+;	   combo chain was a normal attack
+;	   or a special attack
+;Var(53) : Juggle flag
+;	   0 if there was no special
+;	   cancel in the last state
+;          change. 1 otherwise
+;Var(50) : State Modifier
+;Var(49) : Special Cancel limit
+;Var(47) : Juggle points (Defaults to 15, increases to 15 once again on counter)
+;Var(45) : Special Cancel Flag
+;Var(44) : Projectile SlowDown Time
+;Var(43) : Tsu maki senpuu kyako flaps
+;Var(42) : No Power add from cancels flag
+;Var(40) : Tsu maki senpuu kyako juggle flag
+;Var(39) : Exceed control (1 per round)
+;Var(38) : Team Battle Flag
+;Var(37) : Hitshaketime
+;Var(36) : Counter Hit Juggle Time
+;Var(0)  : Jump type Control
+FloatPersistIndex = 27
+;FVar(28)  : Base Damage
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 6
+ground.front = 8
+air.back = 6
+air.front = 7
+height = 40
+attack.dist = 80    ;Default attack distance
+proj.attack.dist = 50 ;Default attack distance for projectiles
+proj.doscale = 0     ;Set to 1 to scale projectiles too
+head.pos = 0, -44   ;Approximate position of head
+mid.pos = -0, -28    ;Approximate position of midsection
+shadowoffset = 0     ;Number of pixels to vertically offset the shadow
+draw.offset = 0,0    ;Player drawing offset in pixels (x, y)
+
+[Velocity]
+walk.fwd  = 2.5
+walk.back = -2.1
+run.fwd  = 5.1, -2.8
+run.back = -5.3,-2.8
+jump.neu = 0,-8
+jump.back = -1.9
+jump.fwd = 2.2
+runjump.back = -2.7,-8.9
+runjump.fwd = 4.5,-8.9
+
+[Movement]
+airjump.num = 0      ;Number of air jumps allowed (opt)
+airjump.height = 35  ;Minimum distance from ground before you can air jump (opt)
+yaccel = .44         ;Vertical acceleration
+stand.friction = .85  ;Friction coefficient when standing
+crouch.friction = .82 ;Friction coefficient when crouching
+
