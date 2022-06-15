@@ -1,0 +1,15 @@
+Shoulder Slam: Fwd/bck + hp near
+Tomoe Nage: Fwd/bck + hk near
+
+Hadouken: QCF + p
+Fire Hadouken: HCB + p
+Tsu Maki Shinpuu Kyako: QCB + k
+Shoryuken: DP + p
+
+Level 1 Dms
+Shinkuu Hadouken: 2xQCF + p
+Shinkuu Shoryuken (Aka "Shoryuu Reppa"): 2xQCF+k
+Shinkuu Tsu Maki Senpuu Kyako : 2xQCB+k
+Level 3 Dms
+Shin Shoryuken : 2xQCB+hp+hk
+
