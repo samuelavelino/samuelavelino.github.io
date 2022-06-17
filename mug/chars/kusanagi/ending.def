@@ -1,0 +1,1884 @@
+; Ending cutscene for Kyo's KOF97 SPECIAL ENDING.
+; MUGENIZED BY: SANDER71113
+; Like the intro, this storyboard has multiple scenes.
+; Each scene uses two overlay anims, one for the picture, and
+; another for the text.
+; The fadein and fadeout parameters are used to fade one screen
+; to the next.
+
+[SceneDef]
+spr = ending.sff
+startscene = 0        ;Starting scene number (for debugging)
+
+;------------------------------------
+;SCENE 0 - KYO/CHIZURU/IORI
+[Scene 0]
+; Fade
+fadein.time = 50       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 10,-100,-100
+; Screen color
+clearcolor = 100,100,100
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  2
+layer0.offset = 157,135
+layer0.starttime = 50 
+layer1.anim =  4
+layer1.offset = 157,135
+layer1.starttime = 50
+layer2.anim =  5
+layer2.offset = 157,135
+layer2.starttime = 50
+layer3.anim =  6
+layer3.offset = 157,135
+layer3.starttime = 50
+layer4.anim =  3
+layer4.offset = 157,135
+layer4.starttime = 50
+layer5.anim =  0
+layer5.offset = 0,0
+layer5.starttime = 50 
+layer6.anim =  1    
+layer6.offset = 109,220
+layer6.starttime = 60
+
+ Music
+bgm = ending1.mp3        ;Name of music file to play
+bgmvolume = 255
+bgm.loop = 0
+
+; Total time
+end.time = 620
+;-------------------------------------------------------
+
+;SCENE 1 -OROCHI
+[Scene 1]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 10,-100,-100
+; Screen color
+clearcolor = 100,100,100
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0 
+layer1.anim =  8
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0 
+layer3.anim =  7 
+layer3.offset = 109,220
+layer3.starttime = 10
+
+; Total time
+end.time = 170
+;-------------------------------------------------------
+
+;------------------------------------
+;SCENE 2 -KYO/CHIZ/IORI
+[Scene 2]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 10,-100,-100
+; Screen color
+clearcolor = 100,100,100
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0 
+layer1.anim =  11
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0 
+layer3.anim =  10    
+layer3.offset = 109,220
+layer3.starttime = 10
+
+; Total time
+end.time = 450
+;-------------------------------------------------------
+;------------------------------------
+;SCENE 3 - OROCHI
+[Scene 3]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 10,-100,-100
+; Screen color
+clearcolor = 100,100,100
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0 
+layer1.anim =  13
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0 
+layer3.anim =  12    
+layer3.offset = 109,220
+layer3.starttime = 10
+
+; Total time
+end.time = 200
+;-------------------------------------------------------
+
+;------------------------------------
+;SCENE 4 -KYO/CHIZ/IORI
+[Scene 4]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 40
+fadeout.col = 150,0,0
+; Screen color
+clearcolor = 100,100,100
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0 
+layer1.anim =  16
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  15
+layer2.offset = 157,135
+layer2.starttime = 0
+layer3.anim =  0
+layer3.offset = 0,0
+layer3.starttime = 0 
+layer4.anim =  14
+layer4.offset = 109,220
+layer4.starttime = 10
+
+; Total time
+end.time = 170
+
+;------------------------------------
+;SCENE 5 - IORIRIOT
+[Scene 5]
+; Fade
+fadein.time = 0       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 40
+fadeout.col = 150,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0 
+layer1.anim =  17
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0 
+layer3.anim =  18
+layer3.offset = 109,220
+layer3.starttime = 300
+
+; Total time
+end.time = 450
+;------------------------------------
+;------------------------------------
+;SCENE 6 -OROCHI
+[Scene 6]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0 
+layer1.anim =  13
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0 
+layer3.anim =  19
+layer3.offset = 109,220
+layer3.starttime = 10
+
+; Total time
+end.time = 520
+;------------------------------------
+
+;------------------------------------
+;SCENE 7 - KYO/IORI
+[Scene 7]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 40
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0 
+layer1.anim =  21
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  20
+layer2.offset = 157,135
+layer2.starttime = 0
+layer3.anim =  0
+layer3.offset = 0,0
+layer3.starttime = 0 
+
+; Total time
+end.time = 150
+;------------------------------------
+
+;------------------------------------
+;SCENE 8 -IORIOROCHI1
+[Scene 8]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 40
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  24
+layer0.offset = 157,135
+layer0.starttime = 0 
+layer1.anim =  22
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  23
+layer2.offset = 157,135
+layer2.starttime = 0
+layer3.anim =  25
+layer3.offset = 157,135
+layer3.starttime = 0
+layer4.anim =  0
+layer4.offset = 0,0
+layer4.starttime = 0 
+layer5.anim =  26
+layer5.offset = 109,220
+layer5.starttime = 10
+layer6.anim =  27
+layer6.offset = 157,135
+layer6.starttime = 0
+; Total time
+
+ Music
+bgm = ending2.mp3    ;Name of music file to play
+bgmvolume = 255
+bgm.loop = 0
+
+end.time = 500
+;------------------------------------
+
+;------------------------------------
+;SCENE 9 -BLANK
+[Scene 9]
+; Fade
+fadein.time = 40       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer1.anim =  0
+layer1.offset = 0,0
+layer1.starttime = 0 
+layer2.anim =  28
+layer2.offset = 109,220
+layer2.starttime = 10
+; Total time
+end.time = 320
+;------------------------------------
+
+;------------------------------------
+;SCENE 10 -BLUE FLAME
+[Scene 10]
+; Fade
+fadein.time = 60       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 5,5,5
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  30
+layer0.offset = 157,135
+layer0.starttime = 60 
+layer1.anim =  31
+layer1.offset = 157,135
+layer1.starttime = 85
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0 
+layer3.anim =  29
+layer3.offset = 109,220
+layer3.starttime = 70
+
+ Music
+bgm = ending3.mp3    ;Name of music file to play
+bgmvolume = 255
+bgm.loop = 0
+
+; Total time
+end.time = 390
+;------------------------------------
+
+;------------------------------------
+;SCENE 11 -KYO
+[Scene 11]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,50,50     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 5,5,5
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  32
+layer0.offset = 157,135
+layer0.starttime = 10 
+layer1.anim =  0
+layer1.offset = 0,0
+layer1.starttime = 0 
+layer2.anim =  33
+layer2.offset = 109,220
+layer2.starttime = 20
+
+; Total time
+end.time = 230
+;------------------------------------
+
+;------------------------------------
+;SCENE 12 -BLUEFLAME/KYO
+[Scene 12]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 5,5,5
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  35
+layer0.offset = 157,135
+layer0.starttime = 341
+layer1.anim =  31
+layer1.offset = 157,135
+layer1.starttime = 0 
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0 
+layer3.anim =  34
+layer3.offset = 109,220
+layer3.starttime = 10
+
+; Total time
+end.time = 1520
+;------------------------------------
+
+;------------------------------------
+;SCENE 13 -YELLOWFLAME/KYO
+[Scene 13]
+; Fade
+fadein.time = 0       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 10,5,5
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  32
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  36
+layer1.offset = 157,135
+layer1.starttime = 0 
+layer2.anim =  37
+layer2.offset = 157,135
+layer2.starttime = 13
+layer3.anim =  0
+layer3.offset = 0,0
+layer3.starttime = 0
+;layer4.anim =  38
+;layer4.offset = 109,220
+;layer4.starttime = 0
+; Total time
+end.time = 500
+;------------------------------------
+
+;------------------------------------
+;SCENE 14 -YELLOWFLAMEEND/KYO
+[Scene 14]
+; Fade
+fadein.time = 0       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 15,5,5
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  40
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  39
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0
+;layer3.anim =  38
+;layer3.offset = 109,220
+;layer3.starttime = 0
+; Total time
+end.time = 30
+;------------------------------------
+
+;------------------------------------
+;SCENE 15 -KYO/CHIZURU
+[Scene 15]
+; Fade
+fadein.time = 40       ;Time to take for fading in
+fadein.col = 255,255,255     ;Use 255,255,255 for white-fade
+fadeout.time = 40
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  42
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  41
+layer2.offset = 157,135
+layer2.starttime = 0
+layer3.anim =  0
+layer3.offset = 0,0
+layer3.starttime = 0
+layer4.anim =  43
+layer4.offset = 109,220
+layer4.starttime = 40
+; Total time
+end.time = 450
+;------------------------------------
+
+;------------------------------------
+;SCENE 16 -OROCHI/IORI
+[Scene 16]
+; Fade
+fadein.time = 40       ;Time to take for fading in
+fadein.col = 215,55,55     ;Use 255,255,255 for white-fade
+fadeout.time = 40
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  45
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  46
+layer2.offset = 157,135
+layer2.starttime = 0
+layer3.anim =  0
+layer3.offset = 0,0
+layer3.starttime = 0
+layer4.anim =  44
+layer4.offset = 109,220
+layer4.starttime = 40
+; Total time
+end.time = 600
+;------------------------------------
+
+;------------------------------------
+;SCENE 17 -CHIZURU
+[Scene 17]
+; Fade
+fadein.time = 100       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  47
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0
+layer3.anim =  48
+layer3.offset = 109,220
+layer3.starttime = 50
+
+ Music
+bgm = ending4.mp3    ;Name of music file to play
+bgmvolume = 255
+bgm.loop = 0
+
+; Total time
+end.time = 300
+;------------------------------------
+
+;------------------------------------
+;SCENE 18 -KYO/HAND/SMOKE
+[Scene 18]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  51
+layer1.offset = 157,135
+layer1.starttime = 25
+layer2.anim =  49
+layer2.offset = 157,135
+layer2.starttime = 0
+layer3.anim =  50
+layer3.offset = 157,135
+layer3.starttime = 0
+layer4.anim =  0
+layer4.offset = 0,0
+layer4.starttime = 0
+layer5.anim =  52
+layer5.offset = 109,220
+layer5.starttime = 10
+; Total time
+end.time = 170
+;------------------------------------
+
+;SCENE 19 -OROCHI/IORI 2
+[Scene 19]
+; Fade
+fadein.time = 40       ;Time to take for fading in
+fadein.col = 215,55,55     ;Use 255,255,255 for white-fade
+fadeout.time = 40
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  45
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  46
+layer2.offset = 157,135
+layer2.starttime = 0
+layer3.anim =  0
+layer3.offset = 0,0
+layer3.starttime = 0
+; Total time
+end.time = 350
+;------------------------------------
+
+;------------------------------------
+;SCENE 20 -KYO RED
+[Scene 20]
+; Fade
+fadein.time = 100       ;Time to take for fading in
+fadein.col = 115,25,25     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  53
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0
+layer3.anim =  54
+layer3.offset = 109,220
+layer3.starttime = 10
+; Total time
+end.time = 250
+;------------------------------------
+
+;------------------------------------
+;SCENE 21 -IORI RED
+[Scene 21]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 40
+fadeout.col = 100,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  55
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0
+; Total time
+end.time = 250
+;------------------------------------
+
+;------------------------------------
+;SCENE 22 -KYO/IORI/OROCHI FINAL
+[Scene 22]
+; Fade
+fadein.time = 20       ;Time to take for fading in
+fadein.col = 255,255,255     ;Use 255,255,255 for white-fade
+fadeout.time = 40
+fadeout.col = 255,255,255
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  45
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  56
+layer1.offset = 157,135
+layer1.starttime = 50
+layer2.anim =  57
+layer2.offset = 157,135
+layer2.starttime = 0
+layer3.anim =  60
+layer3.offset = 157,135
+layer3.starttime = 130
+layer4.anim =  60
+layer4.offset = 157,135
+layer4.starttime = 149
+layer5.anim =  61
+layer5.offset = 157,135
+layer5.starttime = 185
+layer6.anim =  0
+layer6.offset = 0,0
+layer6.starttime = 0
+; Total time
+end.time = 240
+;------------------------------------
+
+;------------------------------------
+;SCENE 23 -YUKI FADE IN
+[Scene 23]
+; Fade
+fadein.time = 300       ;Time to take for fading in
+fadein.col = 255,255,255     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 255,255,255
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  62
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0
+
+; Total time
+end.time = 300
+;------------------------------------
+
+;------------------------------------
+;SCENE 24 -YUKI END
+[Scene 24]
+; Fade
+fadein.time = 0       ;Time to take for fading in
+fadein.col = 255,255,255     ;Use 255,255,255 for white-fade
+fadeout.time = 50
+fadeout.col = 255,255,255
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 157,135
+layer0.starttime = 0
+layer1.anim =  62
+layer1.offset = 157,135
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0
+
+ Music
+bgm = ending5.mp3    ;Name of music file to play
+bgmvolume = 255
+bgm.loop = 0
+
+; Total time
+end.time = 300
+;------------------------------------
+
+;------------------------------------
+;KYOX vs IORIX 
+[Scene 25]
+; Fade
+fadein.time = 100       ;Time to take for fading in
+fadein.col = 100,10,10     ;Use 255,255,255 for white-fade
+fadeout.time = 20
+fadeout.col =100,-100,-100
+; Screen color
+clearcolor = 0,0,0
+layer0.anim =  63
+layer0.offset = 150,240
+layer0.starttime = 0
+end.time = 1100
+;------------------------------------
+
+;------------------------------------
+
+;=======================================================================
+;---<> ANIMATIONS <>---
+;=======================================================================
+;SCENE 0 
+
+;BASIC
+[Begin Action 0]
+0,0, 0,0, -1
+
+;TEXT SCENE0
+[Begin Action 1]
+1,1, 0,0, 180
+1,-1,0,0, 20
+1,2, 0,0, 180
+1,-1,0,0, 20
+1,3, 0,0, -1
+
+;BACKGROUND
+[Begin Action 2]
+2,1, -32,0, 30
+2,1, -31,0, 8
+2,1, -30,0, 8
+2,1, -29,0, 8
+2,1, -28,0, 8
+2,1, -27,0, 8
+2,1, -26,0, 8
+2,1, -25,0, 8
+2,1, -24,0, 8
+2,1, -23,0, 8
+2,1, -22,0, 8
+2,1, -21,0, 8
+2,1, -20,0, 8
+2,1, -19,0, 8
+2,1, -18,0, 8
+2,1, -17,0, 8
+2,1, -16,0, 8
+2,1, -15,0, 8
+2,1, -14,0, 8
+2,1, -13,0, 8
+2,1, -12,0, 8
+2,1, -11,0, 8
+2,1, -10,0, 8
+2,1, -9,0, 8
+2,1, -8,0, 8
+2,1, -7,0, 8
+2,1, -6,0, 8
+2,1, -5,0, 8
+2,1, -4,0, 8
+2,1, -3,0, 8
+2,1, -2,0, 8
+2,1, -1,0, 8
+2,1, 0,0, -1
+
+;ROCKS
+[Begin Action 3]
+3,1,  0,0, 30
+3,1, -1,0,4
+3,1, -2,0,4
+3,1, -3,0,4
+3,1, -4,0,4
+3,1, -5,0,4
+3,1, -6,0,4
+3,1, -7,0,4
+3,1, -8,0,4
+3,1, -9,0,4
+3,1, -10,0,4
+3,1, -11,0,4
+3,1, -12,0,4
+3,1, -13,0,4
+3,1, -14,0,4
+3,1, -15,0,4
+3,1, -16,0,4
+3,1, -17,0,4
+3,1, -18,0,4
+3,1, -19,0,4
+3,1, -20,0,4
+3,1, -21,0,4
+3,1, -22,0,4
+3,1, -23,0,4
+3,1, -24,0,4
+3,1, -25,0,4
+3,1, -26,0,4
+3,1, -27,0,4
+3,1, -28,0,4
+3,1, -29,0,4
+3,1, -30,0,4
+3,1, -31,0,4
+3,1, -32,0,4
+3,1, -34,0,4
+3,1, -35,0,4
+3,1, -36,0,4
+3,1, -37,0,4
+3,1, -38,0,4
+3,1, -39,0,4
+3,1, -40,0,4
+3,1, -41,0,4
+3,1, -41,0,4
+3,1, -42,0,4
+3,1, -44,0,4
+3,1, -45,0,4
+3,1, -46,0,4
+3,1, -47,0,4
+3,1, -48,0,4
+3,1, -49,0,4
+3,1, -50,0,4
+3,1, -51,0,4
+3,1, -51,0,4
+3,1, -52,0,4
+3,1, -54,0,4
+3,1, -55,0,4
+3,1, -56,0,4
+3,1, -57,0,4
+3,1, -58,0,4
+3,1, -59,0,4
+3,1, -60,0,4
+3,1, -61,0,4
+3,1, -62,0,4
+3,1, -63,0,4
+3,1, -64,0,-1
+
+;CHIZURU
+[Begin Action 4]
+4,1, 0,0, -1
+
+;KYO
+[Begin Action 5]
+5,1, 0,0, -1
+
+;IORI 
+[Begin Action 6]
+6,1, 0,0, -1
+
+;=========================================
+;SCENE1
+;TEXT
+[Begin Action 7]
+7,1, 0,0, -1
+
+;Orochi
+[Begin Action 8]
+8,1, 0,-96, 1
+8,1, 0,-95, 1
+8,1, 0,-94, 1
+8,1, 0,-93, 1
+8,1, 0,-92, 1
+8,1, 0,-91, 1
+8,1, 0,-90, 1
+8,1, 0,-89, 1
+8,1, 0,-88, 1
+8,1, 0,-87, 1
+8,1, 0,-86, 1
+8,1, 0,-85, 1
+8,1, 0,-84, 1
+8,1, 0,-83, 1
+8,1, 0,-82, 1
+8,1, 0,-81, 1
+8,1, 0,-80, 1
+8,1, 0,-79, 1
+8,1, 0,-78, 1
+8,1, 0,-77, 1
+8,1, 0,-76, 1
+8,1, 0,-75, 1
+8,1, 0,-74, 1
+8,1, 0,-73, 1
+8,1, 0,-72, 1
+8,1, 0,-71, 1
+8,1, 0,-70, 1
+8,1, 0,-69, 1
+8,1, 0,-68, 1
+8,1, 0,-67, 1
+8,1, 0,-66, 1
+8,1, 0,-65, 1
+8,1, 0,-64, 1
+8,1, 0,-63, 1
+8,1, 0,-62, 1
+8,1, 0,-61, 1
+8,1, 0,-60, 1
+8,1, 0,-59, 1
+8,1, 0,-58, 1
+8,1, 0,-57, 1
+8,1, 0,-56, 1
+8,1, 0,-55, 1
+8,1, 0,-54, 1
+8,1, 0,-53, 1
+8,1, 0,-52, 1
+8,1, 0,-51, 1
+8,1, 0,-50, 1
+8,1, 0,-49, 1
+8,1, 0,-48, 1
+8,1, 0,-47, 1
+8,1, 0,-46, 1
+8,1, 0,-45, 1
+8,1, 0,-44, 1
+8,1, 0,-43, 1
+8,1, 0,-42, 1
+8,1, 0,-41, 1
+8,1, 0,-40, 1
+8,1, 0,-39, 1
+8,1, 0,-38, 1
+8,1, 0,-37, 1
+8,1, 0,-36, 1
+8,1, 0,-35, 1
+8,1, 0,-34, 1
+8,1, 0,-33, 1
+8,1, 0,-32, 1
+8,1, 0,-31, 1
+8,1, 0,-30, 1
+8,1, 0,-29, 1
+8,1, 0,-28, 1
+8,1, 0,-27, 1
+8,1, 0,-26, 1
+8,1, 0,-25, 1
+8,1, 0,-24, 1
+8,1, 0,-23, 1
+8,1, 0,-22, 1
+8,1, 0,-21, 1
+8,1, 0,-20, 1
+8,1, 0,-19, 1
+8,1, 0,-18, 1
+8,1, 0,-17, 1
+8,1, 0,-16, 1
+8,1, 0,-15, 1
+8,1, 0,-14, 1
+8,1, 0,-13, 1
+8,1, 0,-12, 1
+8,1, 0,-11, 1
+8,1, 0,-10, 1
+8,1, 0,-9, 1
+8,1, 0,-8, 1
+8,1, 0,-7, 1
+8,1, 0,-6, 1
+8,1, 0,-5, 1
+8,1, 0,-4, 1
+8,1, 0,-3, 1
+8,1, 0,-2, 1
+8,1, 0,-1, 1
+8,1, 0,0, -1
+
+;BACKGROUND
+[Begin Action 9]
+9,1, 0,0, -1
+;==========================================
+
+;TEXT SCENE2
+[Begin Action 10]
+10,1, 0,0, 150
+10,-1,0,0, 20
+10,2, 0,0, 150
+10,-1,0,0, 20
+10,3, 0,0, -1
+
+;KYOIORICHIZURU
+[Begin Action 11]
+11,1,  0,0, -1
+
+;=========================================
+;SCENE3
+
+;TEXT SCENE3
+[Begin Action 12]
+12,  1, 0,0, -1
+
+;OROCHI
+[Begin Action 13]
+13, 1, 0,0, -1
+
+;=========================================
+;SCENE4
+
+;TEXT SCENE4
+[Begin Action 14]
+14,  1, 0,0, -1
+
+;IORI
+[Begin Action 15]
+15,  1, 0,0, -1
+
+;KYOIORICHIZURU
+[Begin Action 16]
+11,1,  0,0, 30
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,1,  0,0, 2
+11,1,  0,0, 2, ,a
+11,-1, 0,0, -1 
+
+;=========================================
+;SCENE5
+
+;IORI RIOT
+[Begin Action 17]
+17,  1, 0,0, 50
+17,  2, 0,0, 5
+17,  1, 0,0, 30
+17,  2, 0,0, 5
+17,  1, 0,0, 30
+17,  2, 0,0, 5
+17,  1, 0,0, 30
+17,  2, 0,0, 5
+17,  1, 0,0, 30
+17,  2, 0,0, 110
+17,  3, 0,0, -1
+
+;SCENE 5 TEXT
+[Begin Action 18]
+18, 1 ,0,0, -1
+
+;================================
+;SCENE 6
+
+;SCENE 6 TEXT
+[Begin Action 19]
+19, 1, 0,0, 150
+19,-1, 0,0, 20
+19, 2, 0,0, 150
+19,-1, 0,0, 20
+19, 3, 0,0, -1
+
+;================================
+
+;SCENE 7
+
+;KYO
+[Begin Action 20]
+20, 1, 0, 0, 30
+20, 1, 0, 1, 1
+20, 1, 0, 1, 1
+20, 1, 0, 3, 1
+20, 1, 0, 4, 1
+20, 1, 0, 5, 1
+20, 1, 0, 6, 1
+20, 1, 0, 7, 1
+20, 1, 0, 8, 1
+20, 1, 0, 9, 1 
+20, 1, 0, 10, 1
+20, 1, 0, 11, 1
+20, 1, 0, 12, 1
+20, 1, 0, 13, 1
+20, 1, 0, 14, 1
+20, 1, 0, 15, 1
+20, 1, 0, 16, 1
+20, 1, 0, 17, 1
+20, 1, 0, 18, 1
+20, 1, 0, 19, 1 
+20, 1, 0, 20, 1
+20, 1, 0, 21, 1
+20, 1, 0, 22, 1
+20, 1, 0, 23, 1
+20, 1, 0, 24, 1
+20, 1, 0, 25, 1
+20, 1, 0, 26, 1
+20, 1, 0, 27, 1
+20, 1, 0, 28, 1
+20, 1, 0, 29, 1 
+20, 1, 0, 30, 1
+20, 1, 0, 31, 1
+20, 1, 0, 32, 1
+20, 1, 0, 33, 1
+20, 1, 0, 34, 1
+20, 1, 0, 35, 1
+20, 1, 0, 36, 1
+20, 1, 0, 37, 1
+20, 1, 0, 38, 1
+20, 1, 0, 39, 1 
+20, 1, 0, 40, 1
+20, 1, 0, 41, 1
+20, 1, 0, 42, 1
+20, 1, 0, 43, 1
+20, 1, 0, 44, 1
+20, 1, 0, 45, 1
+20, 1, 0, 46, 1
+20, 1, 0, 47, 1
+20, 1, 0, 48, 1
+20, 1, 0, 49, 1 
+20, 1, 0, 50, 1
+20, 1, 0, 51, 1
+20, 1, 0, 52, 1
+20, 1, 0, 53, 1
+20, 1, 0, 54, 1
+20, 1, 0, 55, 1
+20, 1, 0, 56, 1
+20, 1, 0, 57, 1
+20, 1, 0, 58, 1
+20, 1, 0, 59, 1 
+20, 1, 0, 60, 1
+20, 1, 0, 61, 1
+20, 1, 0, 62, 1
+20, 1, 0, 63, 1
+20, 1, 0, 64, 1
+20, 1, 0, 65, 1
+20, 1, 0, 66, 1
+20, 1, 0, 67, 1
+20, 1, 0, 68, 1
+20, 1, 0, 69, 1 
+20, 1, 0, 70, 1
+20, 1, 0, 71, 1
+20, 1, 0, 72, 1
+20, 1, 0, 73, 1
+20, 1, 0, 74, 1
+20, 1, 0, 75, 1
+20, 1, 0, 76, 1
+20, 1, 0, 77, 1
+20, 1, 0, 78, 1
+20, 1, 0, 79, 1 
+20, 1, 0, 80, -1
+
+;IORI
+[Begin Action 21]
+21, 1, 0,60, 30
+21, 1, 0,59, 1
+21, 1, 0,58, 1
+21, 1, 0,57, 1
+21, 1, 0,56, 1
+21, 1, 0,55, 1
+21, 1, 0,54, 1
+21, 1, 0,53, 1
+21, 1, 0,52, 1
+21, 1, 0,51, 1
+21, 1, 0,50, 1
+21, 1, 0,49, 1
+21, 1, 0,48, 1
+21, 1, 0,47, 1
+21, 1, 0,46, 1
+21, 1, 0,45, 1
+21, 1, 0,44, 1
+21, 1, 0,43, 1
+21, 1, 0,42, 1
+21, 1, 0,41, 1
+21, 1, 0,40, 1
+21, 1, 0,39, 1
+21, 1, 0,38, 1
+21, 1, 0,37, 1
+21, 1, 0,36, 1
+21, 1, 0,35, 1
+21, 1, 0,34, 1
+21, 1, 0,33, 1
+21, 1, 0,32, 1
+21, 1, 0,31, 1
+21, 1, 0,30, 1
+21, 1, 0,29, 1
+21, 1, 0,28, 1
+21, 1, 0,27, 1
+21, 1, 0,26, 1
+21, 1, 0,25, 1
+21, 1, 0,24, 1
+21, 1, 0,23, 1
+21, 1, 0,22, 1
+21, 1, 0,21, 1
+21, 1, 0,20, 1
+21, 1, 0,19, 1
+21, 1, 0,18, 1
+21, 1, 0,17, 1
+21, 1, 0,16, 1
+21, 1, 0,15, 1
+21, 1, 0,14, 1
+21, 1, 0,13, 1
+21, 1, 0,12, 1
+21, 1, 0,11, 1
+21, 1, 0,10, 1
+21, 1, 0,9, 1
+21, 1, 0,8, 1
+21, 1, 0,7, 1
+21, 1, 0,6, 1
+21, 1, 0,5, 1
+21, 1, 0,4, 1
+21, 1, 0,3, 1
+21, 1, 0,2, 1
+21, 1, 0,1, 1
+21, 1, 0,0, 1
+21, 1, 0, -1, 1
+21, 1, 0, -2, 1
+21, 1, 0, -3, 1
+21, 1, 0, -4, 1
+21, 1, 0, -5, 1
+21, 1, 0, -6, 1
+21, 1, 0, -7, 1
+21, 1, 0, -8, 1
+21, 1, 0, -9, 1 
+21, 1, 0, -10, 1
+21, 1, 0, -11, 1
+21, 1, 0, -12, 1
+21, 1, 0, -13, 1
+21, 1, 0, -14, 1
+21, 1, 0, -15, 1
+21, 1, 0, -16, 1
+21, 1, 0, -17, 1
+21, 1, 0, -18, 1
+21, 1, 0, -19, 1 
+21, 1, 0, -20, 1
+21, 1, 0, -21, -1
+
+;=================================
+;SCENE 8
+
+;OROCHI
+[Begin Action 22]
+22, 1, 0,0, 1
+22, 1, 0,1, 1
+22, 1, 0,2, 1
+22, 1, 0,1, 1
+
+;IORI
+[Begin Action 23]
+23, 1, 0,0, 1
+23, 1, 0,1, 1
+23, 1, 0,2, 1
+23, 1, 0,1, 1
+
+;BACKGROUND
+[Begin Action 24]
+2,  1, 0,0, 140
+24, 1, 0,0, -1
+
+;ROCKS
+[Begin Action 25]
+3, 1, 0,0, 1
+3, 1, 0,1, 1
+3, 1, 0,2, 1
+3, 1, 0,1, 1
+
+;TEXT
+[Begin Action 26]
+26, 1, 0,0, 100
+26,-1, 0,0, 20
+18, 1, 0,0, 150
+26,-1, 0,0, 20
+26, 2, 0,0, -1
+
+;BLANK WHITE
+[Begin Action 27]
+27, 1, 0,0, 7
+27, -1,0,0, 30
+27, 1, 0,0, 7
+27, -1,0,0, 30
+27, 1, 0,0, 7
+27, -1,0,0, 20
+27, 1, 0,0, 7
+27, -1,0,0, 25
+27, 1, 0,0, 7
+27, -1,0,0, -1
+
+;=================================
+;SCENE 9
+;TEXT
+[Begin Action 28]
+28, 1, 0,0, 150
+28,-1, 0,0, 20
+28, 2, 0,0, -1
+;=================================
+;SCENE 10
+;TEXT
+[Begin Action 29]
+29, 1, 0,0, 170
+29,-1, 0,0, 20
+29, 2, 0,0, -1 
+
+;FLAME START
+[Begin Action 30]
+30, 1, 0,0, 5
+30, 2, 0,0, 5
+30, 3, 0,0, 5 
+30, 4, 0,0, 5
+30, 5, 0,0, 5
+30,-1, 0,0,-1
+
+;FLAME TULOY
+[Begin Action 31]
+31, 1, 0,0, 5
+31, 2, 0,0, 5
+31, 3, 0,0, 5
+31, 4, 0,0, 5
+;================================
+;SCENE 11
+;KYO
+[Begin Action 32]
+32, 1, 0,0, -1
+
+;TEXT
+[Begin Action 33]
+33, 1, 0,0, -1
+;================================
+;SCENE 12
+;TEXT
+[Begin Action 34]
+34, 1, 0,0, 170
+34,-1, 0,0, 20
+34, 2, 0,0, 170
+34,-1, 0,0, 20
+34, 3, 0,0, 170
+34,-1, 0,0, 20
+34, 4, 0,0, 170
+34,-1, 0,0, 20
+34, 5, 0,0, 170
+34,-1, 0,0, 20
+34, 6, 0,0, 170
+34,-1, 0,0, 20
+34, 7, 0,0, -1
+
+;KYO
+[Begin Action 35]
+32,1, -160,0, 3
+32,1, -159,0, 3
+32,1, -158,0, 3
+32,1, -157,0, 3
+32,1, -156,0, 3
+32,1, -155,0, 3
+32,1, -154,0, 3
+32,1, -153,0, 3
+32,1, -152,0, 3
+32,1, -151,0, 3
+32,1, -150,0, 3
+32,1, -149,0, 3
+32,1, -148,0, 3
+32,1, -147,0, 3
+32,1, -146,0, 3
+32,1, -145,0, 3
+32,1, -144,0, 3
+32,1, -143,0, 3
+32,1, -142,0, 3
+32,1, -141,0, 3
+32,1, -140,0, 3
+32,1, -139,0, 3
+32,1, -138,0, 3
+32,1, -137,0, 3
+32,1, -136,0, 3
+32,1, -135,0, 3
+32,1, -134,0, 3
+32,1, -133,0, 3
+32,1, -132,0, 3
+32,1, -131,0, 3
+32,1, -130,0, 3
+32,1, -129,0, 3
+32,1, -128,0, 3
+32,1, -127,0, 3
+32,1, -126,0, 3
+32,1, -125,0, 3
+32,1, -124,0, 3
+32,1, -123,0, 3
+32,1, -122,0, 3
+32,1, -121,0, 3
+32,1, -120,0, 3
+32,1, -119,0, 3
+32,1, -118,0, 3
+32,1, -117,0, 3
+32,1, -116,0, 3
+32,1, -115,0, 3
+32,1, -114,0, 3
+32,1, -113,0, 3
+32,1, -112,0, 3
+32,1, -111,0, 3
+32,1, -110,0, 3
+32,1, -109,0, 3
+32,1, -108,0, 3
+32,1, -107,0, 3
+32,1, -106,0, 3
+32,1, -105,0, 3
+32,1, -104,0, 3
+32,1, -103,0, 3
+32,1, -102,0, 3
+32,1, -101,0, 3
+32,1, -100,0, 3
+32,1, -99,0, 3
+32,1, -98,0, 3
+32,1, -97,0, 3
+32,1, -96,0, 3
+32,1, -95,0, 3
+32,1, -94,0, 3
+32,1, -93,0, 3
+32,1, -92,0, 3
+32,1, -91,0, 3
+32,1, -90,0, 3
+32,1, -89,0, 3
+32,1, -88,0, 3
+32,1, -87,0, 3
+32,1, -86,0, 3
+32,1, -85,0, 3
+32,1, -84,0, 3
+32,1, -83,0, 3
+32,1, -82,0, 3
+32,1, -81,0, 3
+32,1, -80,0, 3
+32,1, -79,0, 3
+32,1, -78,0, 3
+32,1, -77,0, 3
+32,1, -76,0, 3
+32,1, -75,0, 3
+32,1, -74,0, 3
+32,1, -73,0, 3
+32,1, -72,0, 3
+32,1, -71,0, 3
+32,1, -70,0, 3
+32,1, -69,0, 3
+32,1, -68,0, 3
+32,1, -67,0, 3
+32,1, -66,0, 3
+32,1, -65,0, 3
+32,1, -64,0, 3
+32,1, -63,0, 3
+32,1, -62,0, 3
+32,1, -61,0, 3
+32,1, -60,0, 3
+32,1, -59,0, 3
+32,1, -58,0, 3
+32,1, -57,0, 3
+32,1, -56,0, 3
+32,1, -55,0, 3
+32,1, -54,0, 3
+32,1, -53,0, 3
+32,1, -52,0, 3
+32,1, -51,0, 3
+32,1, -50,0, 3
+32,1, -49,0, 3
+32,1, -48,0, 3
+32,1, -47,0, 3
+32,1, -46,0, 3
+32,1, -45,0, 3
+32,1, -44,0, 3
+32,1, -43,0, 3
+32,1, -42,0, 3
+32,1, -41,0, 3
+32,1, -40,0, 3
+32,1, -39,0, 3
+32,1, -38,0, 3
+32,1, -37,0, 3
+32,1, -36,0, 3
+32,1, -35,0, 3
+32,1, -34,0, 3
+32,1, -33,0, 3
+32,1, -32,0, 3
+32,1, -31,0, 3
+32,1, -30,0, 3
+32,1, -29,0, 3
+32,1, -28,0, 3
+32,1, -27,0, 3
+32,1, -26,0, 3
+32,1, -25,0, 3
+32,1, -24,0, 3
+32,1, -23,0, 3
+32,1, -22,0, 3
+32,1, -21,0, 3
+32,1, -20,0, 3
+32,1, -19,0, 3
+32,1, -18,0, 3
+32,1, -17,0, 3
+32,1, -16,0, 3
+32,1, -15,0, 3
+32,1, -14,0, 3
+32,1, -13,0, 3
+32,1, -12,0, 3
+32,1, -11,0, 3
+32,1, -10,0, 3
+32,1, -9,0, 3
+32,1, -8,0, 3
+32,1, -7,0, 3
+32,1, -6,0, 3
+32,1, -5,0, 3
+32,1, -4,0, 3
+32,1, -3,0, 3
+32,1, -2,0, 3
+32,1, -1,0, 3
+32,1, 0,0, -1
+;================================
+;SCENE 13
+;FLAME START
+[Begin Action 36]
+36, 1, 0,0, 5
+36, 2, 0,0, 1
+36, 3, 0,0, 1
+36, 4, 0,0, 1
+36, 5, 0,0, 5
+36,-1, 0,0,-1
+
+;FLAME TULOY
+[Begin Action 37]
+37, 1, 0,0, 5
+37, 2, 0,0, 5
+37, 3, 0,0, 5
+37, 4, 0,0, 5
+
+;TEXT
+[Begin Action 38]
+34, 7, 0,0, -1
+;===================================
+;SCENE 14
+;FLAME END
+[Begin Action 39]
+39, 1, 0,0, 4
+39, 2, 0,0, 4
+39, 3, 0,0, 4
+39, 4, 0,0, 4
+39, -1, 0,0, -1
+
+;KYO
+[Begin Action 40]
+32, 1, 0,0, 9
+40, 1, 0,0, -1
+
+;===================================
+;SCENE 15
+
+;KYO
+[Begin Action 41]
+40, 1, 0,0, -1
+
+;CHIZURU
+[Begin Action 42]
+42, 1, 0,0, -1
+
+;TEXT
+[Begin Action 43]
+43, 1, 0,0, 170
+43, -1,0,0, 20
+43, 2, 0,0, -1
+
+;==========================================
+;SCENE 16
+
+;TEXT
+[Begin Action 44]
+44, 1, 0,0, 170
+44, -1,0,0, 20
+44, 2, 0,0, 170
+44, -1,0,0, 20
+44, 3, 0,0, -1
+
+;BACKGROUND
+[Begin Action 45]
+45, 1, 0,0, -1
+
+;OROCHI/IORI
+[Begin Action 46]
+46, 1, 0,0, 1
+46, 1, 0,1, 1
+46, 1, 0,2, 1
+46, 1, 0,1, 1
+
+;======================================
+
+;==========================================
+;SCENE 17
+
+;CHIZURU
+[Begin Action 47]
+47, 1, 0,0, -1
+
+;TEXT
+[Begin Action 48]
+48, 1, 0,0, -1
+
+;==========================================
+;SCENE 18
+
+;KYO
+[Begin Action 49]
+49, 1, 0,0, -1
+
+;HAND
+[Begin Action 50]
+50, 1, 0, 0, 10
+50, 1, 0, 1, 1
+50, 1, 0, 1, 1
+50, 1, 0, 3, 1
+50, 1, 0, 4, 1
+50, 1, 0, 5, 1
+50, 1, 0, 6, 1
+50, 1, 0, 7, 1
+50, 1, 0, 8, 1
+50, 1, 0, 9, 1 
+50, 1, 0, 10, 1
+50, 1, 0, 11, 1
+50, 1, 0, 12, 1
+50, 1, 0, 13, 1
+50, 1, 0, 14, 1
+50, 1, 0, 15, 1
+50, 1, 0, 16, 1
+50, 1, 0, 17, 1
+50, 1, 0, 18, 1
+50, 1, 0, 19, 1 
+50, 1, 0, 20, 1
+50, 1, 0, 21, 1
+50, 1, 0, 22, 1
+50, 1, 0, 23, 1
+50, 1, 0, 24, 1
+50, 1, 0, 25, -1
+
+;SMOKE
+[Begin Action 51]
+51, 1, 0,0, 4
+51, 2, 0,0, 4
+51, 3, 0,0, 4
+51, 4, 0,0, 4
+51, 5, 0,0, 4
+51, 6, 0,0, 4
+51, 7, 0,0, 4
+51, 8, 0,0, 4
+51, 9, 0,0, 4
+51, 10, 0,0, 4
+51,-1, 0,0, -1
+
+;TEXT
+[Begin Action 52]
+52, 1, 0,0, -1
+
+;==========================================
+;SCENE 20
+
+;KYO
+[Begin Action 53]
+53, 1, 0,0, -1
+
+;TEXT
+[Begin Action 54]
+54, 1, 0,0, -1
+;==========================================
+;SCENE 21
+
+;IORI
+[Begin Action 55]
+27, 1, 0,0, 10
+55, 1, 0,0, -1 
+
+;==========================================
+;SCENE 22
+
+;KYO1
+[Begin Action 56]
+56, 1, 80,0, 1
+56, 1, 79,0, 1
+56, 1, 78,0, 1
+56, 1, 77,0, 1
+56, 1, 76,0, 1
+56, 1, 75,0, 1
+56, 1, 74,0, 1
+56, 1, 73,0, 1
+56, 1, 72,0, 1
+56, 1, 71,0, 1
+56, 1, 70,0, 1
+56, 1, 69,0, 1
+56, 1, 68,0, 1
+56, 1, 67,0, 1
+56, 1, 66,0, 1
+56, 1, 65,0, 1
+56, 1, 64,0, 1
+56, 1, 63,0, 1
+56, 1, 62,0, 1
+56, 1, 61,0, 1
+56, 1, 60,0, 1
+56, 1, 59,0, 1
+56, 1, 58,0, 1
+56, 1, 57,0, 1
+56, 1, 56,0, 1
+56, 1, 55,0, 1
+56, 1, 54,0, 1
+56, 1, 53,0, 1
+56, 1, 52,0, 1
+56, 1, 51,0, 1
+56, 1, 50,0, 1
+56, 1, 49,0, 1
+56, 1, 48,0, 1
+56, 1, 47,0, 1
+56, 1, 46,0, 1
+56, 1, 45,0, 1
+56, 1, 44,0, 1
+56, 1, 43,0, 1
+56, 1, 42,0, 1
+56, 1, 41,0, 1
+56, 1, 40,0, 1
+56, 1, 39,0, 1
+56, 1, 38,0, 1
+56, 1, 37,0, 1
+56, 1, 36,0, 1
+56, 1, 35,0, 1
+56, 1, 34,0, 1
+56, 1, 33,0, 1
+56, 1, 32,0, 1
+56, 1, 31,0, 1
+56, 1, 30,0, 1
+56, 1, 29,0, 1
+56, 1, 28,0, 1
+56, 1, 27,0, 1
+56, 1, 26,0, 1
+56, 1, 25,0, 1
+56, 1, 24,0, 1
+56, 1, 23,0, 1
+56, 1, 22,0, 1
+56, 1, 21,0, 1
+56, 1, 20,0, 1
+56, 1, 19,0, 1
+56, 1, 18,0, 1
+56, 1, 17,0, 1
+56, 1, 16,0, 1
+56, 1, 15,0, 1
+56, 1, 14,0, 1
+56, 1, 13,0, 1
+56, 1, 12,0, 1
+56, 1, 11,0, 1
+56, 1, 10,0, 1
+56, 1, 9,0, 1
+58, 1, 8,0, 1
+58, 1, 7,0, 1
+58, 1, 6,0, 1
+58, 1, 5,0, 1
+58, 1, 4,0, 1
+59, 1, 3,0, 1
+59, 1, 2,0, 1
+59, 1, 1,0, 1
+59, 1, 0,0, 1
+59, 1, 0,0, -1
+
+;IORI OROCHI
+[Begin Action 57]
+57, 1, 0,0, 4
+57, 2, 0,0, 7
+
+;CIRCLE
+[Begin Action 60]
+60, 1, 0,0, 2
+60, 2, 0,0, 2
+60, 3, 0,0, 2
+60, 4, 0,0, 2
+60, 5, 0,0, 2
+60, 6, 0,0, 2
+60, 7, 0,0, 2
+60, 8, 0,0, 2
+60, 9, 0,0, 2
+60, 10, 0,0, 2
+60, 11, 0,0, 2
+60, 12, 0,0, 2
+60, 13, 0,0, 2
+60, 14, 0,0, 2
+60, -1, 0,0, -1
+
+;CIRCLE REVERSE
+[Begin Action 61]
+60, 14, 0,0, 2
+60, 13, 0,0, 2
+60, 12, 0,0, 2
+60, 11, 0,0, 2
+60, 10, 0,0, 2
+60, 9, 0,0, 2
+60, 8, 0,0, 2
+60, 7, 0,0, 2
+60, 6, 0,0, 2
+60, 5, 0,0, 2
+60, 4, 0,0, 2
+60, 3, 0,0, 2
+60, 2, 0,0, 2
+60, 1, 0,0, 2
+60, -1, 0,0, -1
+
+
+;==========================
+;SCENE 23
+;YUKI
+[Begin Action 62]
+62, 1, 0,0, -1
+
+;==========================
+;SCENE 25
+;FIN
+[Begin Action 63]
+63, 1, 0,0, -1
+
+
+;=========================================================
+;---<> Email   : sander71113@yahoo.com 
+;=========================================================
+;---<> WEBPAGE : http:/go.to/sander71113
+;=========================================================

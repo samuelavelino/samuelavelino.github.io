@@ -1,0 +1,30 @@
+[Info]
+Name         = "Yagami-AKOF"
+DisplayName  = "Yagami"
+VersionDate  = 07,30,2010
+MugenVersion = 06,14,2003
+Author       = "jin"
+Pal.Defaults = 1,2,3,4,5,6
+
+[Files]
+Cmd      = yagamiAKOF.cmd
+Cns      = yagamiAKOF.cns
+St       = yagamiAKOF.cns
+St0      = yagamiAKOF-N.cns
+St1      = yagamiAKOF-S.cns
+St2      = yagamiAKOF-H.cns
+St3      = yagamiAKOF-2-3.cns
+StCommon = common1.cns
+Sprite   = yagamiAKOF.sff
+Anim     = yagamiAKOF.air
+Sound    = yagamiAKOF.snd
+
+;---カラーパレット---
+
+Pal1 = yagamiAKOF01.act
+Pal2 = yagamiAKOF02.act
+Pal3 = yagamiAKOF03.act
+Pal4 = yagamiAKOF04.act
+Pal5 = yagamiAKOF05.act
+Pal6 = yagamiAKOF06.act
+

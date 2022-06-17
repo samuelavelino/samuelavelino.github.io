@@ -1,0 +1,899 @@
+            =======================================================================
+                   --------------------| SANDER 71113 |-------------------
+                                    sander71113@yahoo.com
+                                   http://go.to/sander71113 
+
+==============
+Kyo Kusanagi X 
+==============
+DATE: 10/19/2001
+
+
+ ----------------------------------------------------------------------------------------------
+ *** M.U.G.E.N. JOYSTICK CONFIGURATION ***
+ (Player 1)
+
+ *- DIRECTION KEYS
+
+		     (U)           U = up        DF = downforward
+    
+ 		 (B)  x  (F)       B = back      DB = downback
+  
+  		     (D)           F = Forward   UF = upforward
+
+		                   D = down      UB = upback
+
+ *- BUTTONS
+
+		 (x) (y) (z)       x = light punch    y = hard punch   z = No Use 
+                   
+		 (a) (b) (c)       a = light kick     b = hard kick    c = No Use
+
+		     (s)                              s = start
+ ---------------------------------------------------------------------------------------------
+
+ ---------------------------------------------------------------------------------------------
+ ** THROWS **
+ 
+ NOTE: Throws are cancelable
+
+ F, (y) [WHEN CLOSE]  - Hatsugane			
+
+ F, (b) [WHEN CLOSE]  - Issetsu Seoi Nage	 
+ --------------------------------------------------------------------------------------------
+
+ --------------------------------------------------------------------------------------------
+
+ *** MODE DEPENDENT MOVES ***
+ 
+ NOTE: KyoX has a number of modes (An ever increasing number at that :P). Remember that Each
+       Mode has it's own moves and Commands. Also some moves may have commands that vary from 
+       mode to mode. Kyo-1 and Kyo-2 mode have a unique set of Basic Attacks. Here is a 
+       complete and long list of Mode Dependent moves. 
+
+ MODES:  ^ KYO'95 ^ KYO'98 ^ KYO'99 ^ KYO-1 ^ KYO-2 ^ KYO MIX ^
+
+ --------------------------------------------------------------------------------------------
+ =====================
+  ** KYO 98 MODE:                           
+ =====================
+
+     CMD:        JAPANESE NAME:                                          TRANSLATION:
+
+     F,  (a)  = Axe Kick
+
+     DF, (b)  = 88 Shiki                                                  (Style 88)
+
+     D, (x)   = Naraku Otoshi                                             (Air Smash)
+
+     (y)+(b)  = knockdown attack (can be done in air)
+
+     ---------
+   * SPECIALS:
+     ---------------------------------------------------------
+     114 Shiki: Ara Gami Thread  (Wild Bite Thread)                                 
+      
+      D, DF, F, (x) = 114 Shiki: Ara Gami                                (Wild Bite)
+      |
+      |
+      *--  D, DF, F, (x) or (y) = 128 Shiki: Kuu Kizu                    (Nine Wounds)
+      |    |
+      |    *-- (x) or (y) = Ge Shiki: Migiri Ugachi                     (Seven Torrents)
+      |    |
+      |    *-- (a) or (b) = 125 Shiki: Nana Se                            (Time Drill)
+      |
+      |
+      *--  F, DF, D, DB, B, (x) or (y) = 127 Shiki: Ya Sabi              (Eight Rust)
+      |    |
+      |    *-- (x) or (y) = Ge Shiki: Migiri Ugachi                     (Seven Torrents)
+      |    |
+      |    *-- (a) or (b) = 125 Shiki: Nana Se                            (Time Drill)
+     ---------------------------------------------------------
+     
+     ---------------------------------------------------------
+     115 Shiki: Doku Gami Chain (Posion Bite Chain)
+
+     D, DF, F, (x) = 115 Shiki: Doku Gami                                 (Poison Bite)
+     |  
+     *-- F, DF, D, DB, B, (x) or (y) = 401 Shiki: Tsumi Yomi            (Sin Composition)
+         |
+         *-- F, (x) or (y)  = 402 Shiki: Batsu Yomi                (Punishment Composition)
+     ---------------------------------------------------------
+ 
+     ---------------------------------------------------------
+     212 Shiki: Kototsuki You                                          (Koto Moon Positive)
+
+     F, DF, D, DB, B, (a) = Type 1 
+
+     F, DF, D, DB, B, (b) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     900 Shiki: Nue Tsumi                                               (Clipping Chimera)
+   
+     D, DB, B, (x) = Type 1 
+
+     D, DB, B, (y) = Type 2
+     ---------------------------------------------------------
+    
+     ---------------------------------------------------------
+     100 Shiki: Oni Yaki					        (Demon Scorcher)
+
+     F, DF, F, (x) = Type 1 
+
+     F, DF, F, (y) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     75 Shiki: Kai                                                         (Modified)
+
+     D, DF, F, (a) = Type 1 
+
+     D, DF, F, (b) = Type 2
+
+     (a) or (b)    = Follow Up Kick
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     717 Shiki: Koma Hofuri                                               (R.E.D. Kick)
+
+     B, D, DB, (a) = Type 1
+ 
+     B, D, DB, (b) = Type 2
+     ---------------------------------------------------------
+     
+     ----------------
+   * SUPERS: [DM/SDM]
+     ---------------------------------------------------------
+     Ura Hyaku Hachi Shiki: Orochi Nagi              (Reverse Style No. 108: Great Serpent Wave)
+
+     D, DB, B, DB, D, DF, F, (x) or (y) 
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     Saihuu Kessen Ougi: Mu Shiki                     (No Style: Final Battle Hidden Technique)
+
+     D, DF, F, D, DF, F, (x) or (y)
+     |
+     *- F, (x) or (y) - Taunt 
+     Rough translation: "We don't have the same experience"
+     If Mu Shiki hits the opponent
+     ---------------------------------------------------------
+ --------------------------------------------------------------------------------------------
+
+ --------------------------------------------------------------------------------------------
+ =====================
+  ** KYO 95 MODE:                           
+ =====================
+
+  -* NOTES: Kyo 95 has the Guard Cancel Ability of KOF '95, meaning all specials and 
+            supers are Guard CAncel -Able-.
+
+
+     CMD:        JAPANESE NAME:                                          TRANSLATION:
+
+     F,  (a)  = Axe Kick
+
+     DF, (b)  = 88 Shiki                                                    (Style 88)
+
+     D, (x)   = Naraku Otoshi                                             (Air Smash)
+
+     (y)+(b)  = knockdown attack (can be done in air)
+
+     ---------
+   * SPECIALS:
+     ---------------------------------------------------------
+     212 Shiki: Kototsuki You                                          (Koto Moon Positive)
+
+     F, DF, D, DB, B, (a) = Type 1 
+
+     F, DF, D, DB, B, (b) = Type 2      
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     100 Shiki: Oni Yaki                                                 (Demon Scorcher)
+
+     F, DF, F, (x) = Type 1 
+
+     F, DF, F, (y) = Type 2
+
+     NOTES: No auto guard, has invincibility properties.
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     75 Shiki: Kai                                                           (Modified)
+
+     D, DF, F, (a) = Type 1 
+
+     D, DF, F, (b) = Type 2
+
+     (a) or (b)    = Follow Up Kick
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     108 Shiki: Yami Barai                                                (Darkness Sweep)
+
+     D, DF, F, (x) = Type 1 
+
+     D, DF, F, (y) = Type 2
+
+     NOTES: Faster recoverytime... No OTGs
+     ---------------------------------------------------------
+
+     ------------------------------------
+     101 Shiki: Oboro Guruma                                              (Twilight Wheel)
+
+     B, D, DB, (a) = Type 1
+ 
+     B, D, DB, (b) = Type 2
+     ------------------------------------
+
+     ----------------
+   * SUPERS: [DM/SDM]
+     ---------------------------------------------------------
+     Ura Hyaku Hachi Shiki: Orochi Nagi              (Reverse Style No. 108: Great Serpent Wave)
+
+     D, DB, B, DB, D, DF, F, (x) or (y) 
+
+     NOTE: This move has longer invincibility time.
+     ---------------------------------------------------------
+ --------------------------------------------------------------------------------------------
+
+ --------------------------------------------------------------------------------------------
+ =====================
+  ** KYO 99 MODE:                           
+ =====================
+
+  -* NOTES: Thanks to "Kaddet" for the edited sprites which made this possible.
+
+     CMD:        JAPANESE NAME:                                          TRANSLATION:
+
+     F,  (a)  = Axe Kick
+
+     DF, (b)  = 88 Shiki                                                  (Style 88)
+
+     D, (x)   = Naraku Otoshi                                             (Air Smash)
+
+     (y)+(b)  = knockdown attack (can be done in air)
+
+     ---------
+   * SPECIALS:
+     ---------------------------------------------------------
+     114 Shiki: Ara Gami Thread  (Wild Bite Thread)                                 
+
+      D, DF, F, (x) = 114 Shiki: Ara Gami                                (Wild Bite)
+      |
+      |
+      *--  D, DF, F, (x) or (y) = 128 Shiki: Kuu Kizu                    (Nine Wounds)
+      |    |
+      |    *-- (x) or (y) = Ge Shiki: Migiri Ugachi                     (Seven Torrents)
+      |    |
+      |    *-- (a) or (b) = 125 Shiki: Nana Se                            (Time Drill)
+      |
+      |
+      *--  F, DF, D, DB, B, (x) or (y) = 127 Shiki: Ya Sabi              (Eight Rust)
+      |    |
+      |    *-- (x) or (y) = Ge Shiki: Migiri Ugachi                     (Seven Torrents)
+      |    |
+      |    *-- (a) or (b) = 125 Shiki: Nana Se                            (Time Drill)
+     ---------------------------------------------------------
+     
+     ---------------------------------------------------------
+     115 Shiki: Doku Gami Chain (Posion Bite Chain)
+
+     D, DF, F, (x) = 115 Shiki: Doku Gami                                (Poison Bite)
+     |  
+     *-- F, DF, D, DB, B, (x) or (y) = 401 Shiki: Tsumi Yomi            (Sin Composition)
+         |
+         *-- F, (x) or (y)  = 402 Shiki: Batsu Yomi                (Punishment Composition)
+     ---------------------------------------------------------
+ 
+     ---------------------------------------------------------
+     212 Shiki: Kototsuki You  (99 Style)                              (Koto Moon Positive)
+
+     F, DF, D, DB, B, (a) = Type 1 
+
+     F, DF, D, DB, B, (b) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     900 Shiki: Nue Tsumi                                               (Clipping Chimera)
+   
+     D, DB, B, (x) = Type 1 
+
+     D, DB, B, (y) = Type 2
+     ---------------------------------------------------------
+    
+     ---------------------------------------------------------
+     100 Shiki: Oni Yaki					        (Demon Scorcher)
+
+     F, DF, F, (x) = Type 1 
+
+     F, DF, F, (y) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     75 Shiki: Kai                                                         (Modified)
+
+     D, DF, F, (a) = Type 1 
+
+     D, DF, F, (b) = Type 2
+
+     (a) or (b)    = Follow Up Kick
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     717 Shiki: Koma Hofuri                                               (R.E.D. Kick)
+
+     B, D, DB, (a) = Type 1
+ 
+     B, D, DB, (b) = Type 2
+     ---------------------------------------------------------
+     
+     ----------------
+   * SUPERS: [DM/SDM]
+     ---------------------------------------------------------
+     Ura Hyaku Hachi Shiki: Orochi Nagi              (Reverse Style No. 108: Great Serpent Wave)
+
+     D, DB, B, DB, D, DF, F, (x) or (y) 
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     182 Shiki                                        (Style: 182 Final Battle Hidden Technique)
+
+     D, DF, F, D, DF, F, (x) or (y)
+     ---------------------------------------------------------
+ --------------------------------------------------------------------------------------------
+
+ --------------------------------------------------------------------------------------------
+ =====================
+  ** KYO-1  MODE:                           
+ =====================
+
+     CMD:        JAPANESE NAME:                                          TRANSLATION:
+
+     F, (x)   = Kurogami                                                    (????)
+
+     F, (a)   = Hono Furi                                                   (????)
+
+     DF, (y)  = Migiri Ugachi                                            (Ground Smash)
+
+     (y)+(b)  = knockdown attack (can be done in air)
+
+     ---------
+   * SPECIALS:
+     ---------------------------------------------------------
+     75 Shiki: Kai                                                         (Modified)
+
+     D, DF, F, (a) = Type 1 
+
+     D, DF, F, (b) = Type 2
+
+     (a) or (b)    = Follow Up Kick
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     108 Shiki: Yami Barai					          (Darkness Sweep)
+
+     D, DF, F, (x) = Type 1 
+
+     D, DF, F, (y) = Type 2
+
+     NOTES: Slower recoverytime, very open to jump attacks.  
+     ---------------------------------------------------------
+
+     ------------------------------------
+     101 Shiki: Oboro Guruma                                              (Twilight Wheel)
+
+     F, D, DF, (a) = Type 1
+ 
+     F, D, DF, (b) = Type 2
+     ------------------------------------
+
+     ---------------------------------------------------------
+     Aoki                                                                     (????)
+
+     D, DB, B, (x) = Type 1 
+
+     D, DB, B, (y) = Type 2
+     ---------------------------------------------------------
+
+     ----------------
+   * SUPERS: [DM/SDM]
+     ---------------------------------------------------------
+     Ura Hyaku Hachi Shiki: Orochi Nagi              (Reverse Style No. 108: Great Serpent Wave)
+
+     D, DB, B, DB, D, DF, F, (x) or (y) 
+
+     NOTES: Longer lag time before release, Added Invinvibility.
+     ---------------------------------------------------------
+ --------------------------------------------------------------------------------------------
+
+ --------------------------------------------------------------------------------------------
+ =====================
+  ** KYO-2 MODE:                           
+ =====================
+   
+  -* NOTES: Close-HP has Auto Guard properties.
+
+     CMD:        JAPANESE NAME:                                          TRANSLATION:
+
+     F,  (a)  = Axe Kick
+
+     D, (x)   = Naraku Otoshi                                             (Air Smash)
+
+     (y)+(b)  = knockdown attack (can be done in air)
+
+     ---------
+   * SPECIALS:
+     ---------------------------------------------------------
+     114 Shiki: Ara Gami Thread  (Wild Bite Thread)                                 
+
+      D, DF, F, (x) = 114 Shiki: Ara Gami                                (Wild Bite)
+      |
+      |
+      *--  D, DF, F, (x) or (y) = 128 Shiki: Kuu Kizu                    (Nine Wounds)
+      |    |
+      |    *-- (x) or (y) = Ge Shiki: Migiri Ugachi                     (Seven Torrents)
+      |    |
+      |    *-- (a) or (b) = 125 Shiki: Nana Se                            (Time Drill)
+      |
+      |
+      *--  F, DF, D, DB, B, (x) or (y) = 127 Shiki: Ya Sabi              (Eight Rust)
+      |    |
+      |    *-- (x) or (y) = Ge Shiki: Migiri Ugachi                     (Seven Torrents)
+      |    |
+      |    *-- (a) or (b) = Kyo-2 Modified Guard Crush Attack             (????????)
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     115 Shiki: Doku Gami Chain (Posion Bite Chain)
+
+     D, DF, F, (x) = 115 Shiki: Doku Gami                                (Poison Bite)
+     |  
+     *-- F, DF, D, DB, B, (x) or (y) = 401 Shiki: Tsumi Yomi            (Sin Composition)
+         |
+         *-- F, (x) or (y)  = 402 Shiki: Batsu Yomi                (Punishment Composition)
+     ---------------------------------------------------------
+ 
+     ---------------------------------------------------------
+     212 Shiki: Kototsuki You                                         (Koto Moon Positive)
+
+     F, DF, D, DB, B, (a) = Type 1 
+
+     F, DF, D, DB, B, (b) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     100 Shiki: Oni Yaki                                               (Demon Scorcher)
+
+     F, DF, F, (x) = Type 1 
+
+     F, DF, F, (y) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     717 Shiki: Koma Hofuri                                               (R.E.D. Kick)
+
+     B, D, DB, (a) = Type 1
+ 
+     B, D, DB, (b) = Type 2
+     ---------------------------------------------------------
+
+     ----------------
+   * SUPERS: [DM/SDM]
+     ---------------------------------------------------------
+     Saihuu Kessen Ougi: Mu Shiki                     (No Style: Final Battle Hidden Technique)
+
+     D, DF, F, D, DF, F, (x) or (y)
+     |
+     *- F, (x) or (y) - Taunt 
+     Rough translation: "We don't have the same experience"
+     If Mu Shiki hits the opponent
+     ---------------------------------------------------------
+ --------------------------------------------------------------------------------------------
+
+ --------------------------------------------------------------------------------------------
+ =====================
+  ** KYO 2K MODE:                           
+ =====================
+
+  -* NOTES: Thanks to "Kaddet" for the edited sprites which made this possible.
+
+     CMD:        JAPANESE NAME:                                          TRANSLATION:
+
+     F,  (a)  = Axe Kick
+
+     DF, (b)  = 88 Shiki                                                  (Style 88)
+
+     D, (x)   = Naraku Otoshi                                             (Air Smash)
+
+     (y)+(b)  = knockdown attack (can be done in air)
+
+     ---------
+   * SPECIALS:
+     ---------------------------------------------------------
+     114 Shiki: Ara Gami Thread  (Wild Bite Thread)                                 
+
+      D, DF, F, (x) = 114 Shiki: Ara Gami                                (Wild Bite)
+      |
+      |
+      *--  D, DF, F, (x) or (y) = 128 Shiki: Kuu Kizu                    (Nine Wounds)
+      |    |
+      |    *-- (x) or (y) = Ge Shiki: Migiri Ugachi                     (Seven Torrents)
+      |    |
+      |    *-- (a) or (b) = 125 Shiki: Nana Se                            (Time Drill)
+      |
+      |
+      *--  F, DF, D, DB, B, (x) or (y) = 127 Shiki: Ya Sabi              (Eight Rust)
+      |    |
+      |    *-- (x) or (y) = Ge Shiki: Migiri Ugachi                     (Seven Torrents)
+      |    |
+      |    *-- (a) or (b) = 125 Shiki: Nana Se                            (Time Drill)
+     ---------------------------------------------------------
+     
+     ---------------------------------------------------------
+     115 Shiki: Doku Gami Chain (Posion Bite Chain)
+
+     D, DF, F, (x) = 115 Shiki: Doku Gami                                (Poison Bite)
+     |  
+     *-- F, DF, D, DB, B, (x) or (y) = 401 Shiki: Tsumi Yomi            (Sin Composition)
+         |
+         *-- F, (x) or (y)  = 402 Shiki: Batsu Yomi                (Punishment Composition)
+     ---------------------------------------------------------
+ 
+     ---------------------------------------------------------
+     212 Shiki: Kototsuki You  (2K Style)                              (Koto Moon Positive)
+
+     F, DF, D, DB, B, (a) = Type 1 
+
+     F, DF, D, DB, B, (b) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     900 Shiki: Nue Tsumi                                               (Clipping Chimera)
+   
+     D, DB, B, (x) = Type 1 
+
+     D, DB, B, (y) = Type 2
+     ---------------------------------------------------------
+    
+     ---------------------------------------------------------
+     100 Shiki: Oni Yaki					        (Demon Scorcher)
+
+     F, DF, F, (x) = Type 1 
+
+     F, DF, F, (y) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     75 Shiki: Kai                                                         (Modified)
+
+     D, DF, F, (a) = Type 1 
+
+     D, DF, F, (b) = Type 2
+
+     (a) or (b)    = Follow Up Kick
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     717 Shiki: Koma Hofuri                                               (R.E.D. Kick)
+
+     B, D, DB, (a) = Type 1
+ 
+     B, D, DB, (b) = Type 2
+     ---------------------------------------------------------
+     
+     ----------------
+   * SUPERS: [DM/SDM]
+     ---------------------------------------------------------
+     Ura Hyaku Hachi Shiki: Orochi Nagi              (Reverse Style No. 108: Great Serpent Wave)
+
+     D, DB, B, DB, D, DF, F, (x) or (y) 
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     Shiki 2K                                                 (Final Battle Hidden Technique)
+
+     D, DF, F, D, DF, F, (x) or (y)
+     ---------------------------------------------------------
+ --------------------------------------------------------------------------------------------
+
+
+ --------------------------------------------------------------------------------------------
+ =====================
+  ** KYO MIX MODE:                           
+ =====================
+
+     CMD:        JAPANESE NAME:                                          TRANSLATION:
+
+     F,  (a)  = Axe Kick
+
+     DF, (b)  = 88 Shiki                                                  (Style 88)
+
+     B, (y)   = Auto Guard Hard Punch                                      (??????)
+
+     D, (x)   = Naraku Otoshi                                             (Air Smash)
+
+     (y)+(b)  = knockdown attack (can be done in air)
+
+     ---------
+   * SPECIALS:
+     ---------------------------------------------------------
+     114 Shiki: Ara Gami Thread  (Wild Bite Thread)                                 
+
+      D, DF, F, (x) = 114 Shiki: Ara Gami                                (Wild Bite)
+      |
+      |
+      *--  D, DF, F, (x) or (y) = 128 Shiki: Kuu Kizu                    (Nine Wounds)
+      |    |
+      |    *-- (x) or (y) = Ge Shiki: Migiri Ugachi                     (Seven Torrents)
+      |    |
+      |    *-- (a) or (b) = 125 Shiki: Nana Se                            (Time Drill)
+      |
+      |
+      *--  F, DF, D, DB, B, (x) or (y) = 127 Shiki: Ya Sabi              (Eight Rust)
+      |    |
+      |    *-- (x) or (y) = Ge Shiki: Migiri Ugachi                     (Seven Torrents)
+      |    |
+      |    *-- (a) or (b) = Kyo-2 Modified Guard Crush Attack             (??????)
+     ---------------------------------------------------------
+     
+     ---------------------------------------------------------
+     115 Shiki: Doku Gami Chain (Posion Bite Chain)
+
+     D, DF, F, (x) = 115 Shiki: Doku Gami                                 (Poison Bite)
+     |  
+     *-- F, DF, D, DB, B, (x) or (y) = 401 Shiki: Tsumi Yomi            (Sin Composition)
+         |
+         *-- F, (x) or (y)  = 402 Shiki: Batsu Yomi                (Punishment Composition)
+     ---------------------------------------------------------
+ 
+     ---------------------------------------------------------
+     212 Shiki: Kototsuki You                                          (Koto Moon Positive)
+
+     F, DF, D, DB, B, (a) = Type 1 
+
+     F, DF, D, DB, B, (b) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     212 Shiki: Kototsuki You  (99 Style)                              (Koto Moon Positive)
+
+     B, DB, D, DF, F, (a) = Type 1 
+
+     D, DB, D, DF, F, (b) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     212 Shiki: Kototsuki You  (2K Style)                              (Koto Moon Positive)
+
+     D, DB, B, (a) = Type 1 
+
+     D, DB, B, (b) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     900 Shiki: Nue Tsumi                                               (Clipping Chimera)
+   
+     D, DB, B, (x) = Type 1 
+
+     D, DB, B, (y) = Type 2
+     ---------------------------------------------------------
+    
+     ---------------------------------------------------------
+     100 Shiki: Oni Yaki					        (Demon Scorcher)
+
+     F, DF, F, (x) = Type 1 
+
+     F, DF, F, (y) = Type 2
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     75 Shiki: Kai                                                         (Modified)
+
+     D, DF, F, (a) = Type 1 
+
+     D, DF, F, (b) = Type 2
+
+     (a) or (b)    = Follow Up Kick
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     717 Shiki: Koma Hofuri                                               (R.E.D. Kick)
+
+     B, D, DB, (a) = Type 1
+ 
+     B, D, DB, (b) = Type 2
+     ---------------------------------------------------------
+     
+     ---------------------------------------------------------
+     108 Shiki: Yami Barai					          (Darkness Sweep)
+
+     B, DB, D, DF, F, (x) = Type 1 
+
+     B, DB, D, DF, F, (y) = Type 2
+
+     NOTES: Slower recoverytime, very open to jump attacks.  
+     ---------------------------------------------------------
+
+     ------------------------------------
+     101 Shiki: Oboro Guruma                                              (Twilight Wheel)
+
+     F, D, DF, (a) = Type 1
+ 
+     F, D, DF, (b) = Type 2
+     ------------------------------------
+
+     ---------------------------------------------------------
+     Aoki                                                                     (????)
+
+     F, DF, D, DB, B, (x) = Type 1 
+
+     F, DF, D, DB, B, (y) = Type 2
+     ---------------------------------------------------------
+
+     ----------------
+   * SUPERS: [DM/SDM]
+     ---------------------------------------------------------
+     Ura Hyaku Hachi Shiki: Orochi Nagi              (Reverse Style No. 108: Great Serpent Wave)
+
+     D, DB, B, DB, D, DF, F, (x) or (y) 
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     Saihuu Kessen Ougi: Mu Shiki                     (No Style: Final Battle Hidden Technique)
+
+     D, DF, F, D, DF, F, (x) or (y)
+     |
+     *- F, (x) or (y) - Taunt 
+     Rough translation: "We don't have the same experience"
+     If Mu Shiki hits the opponent
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     182 Shiki                                        (Style: 182 Final Battle Hidden Technique)
+
+     D, DF, F, D, DF, F, (a) or (b)
+     ---------------------------------------------------------
+
+     ---------------------------------------------------------
+     Shiki 2K                                                  (Final Battle Hidden Technique)
+
+     D, DB, B, D, DB, B, (x) or (y)
+     ---------------------------------------------------------
+
+ --------------------------------------------------------------------------------------------
+ *** GROOVE DEPENDENT MOVES ***
+
+ NOTE: KyoX has a number of Grooves. Remember that each Groove has it's own moves and Commands. 
+       Also some moves may have commands that vary from groove to groove. Here is a complete 
+       list of Groove Dependent Moves and their commands.
+
+ GROOVES: - ADVANCE - EXTRA - KOF'99 - KOF'2K - MIX - 
+
+ =====================
+  ** ADVANCE GROOVE:                           
+ =====================
+
+     NOTE: A Desperation move uses on power stock. Max is necessary to be 
+        able to do Super Desperation moves. It uses 1 power stock. it also
+        increases your attack/defense a bit.
+         
+     Roll Forward       - (x)+(a)        
+
+     Roll Back          - B, (x)+(a) 
+
+     Max                - (x)+(y)+(a)
+
+     Safe Fall Recovery - (x)+(a)  
+
+     Run Forward        - F, F
+
+     Guard Cancel rolls/Knockdown - See Above
+
+ =====================
+  ** EXTRA GROOVE:                           
+ =====================
+
+     NOTE: In Extra Groove, All attacks (hit or miss) give no power gain. You can gain
+           only gain power by getting hit or by "charging" up your meter to max. I prefer 
+           the latter personally :P. Getting the power up to the 1st level produces a "MAX" 
+           effect, increasing attack and defense a bit. DMs can be used when Maxed and
+           free DMs are available when in low life (life <= 200). Super Desperation Moves
+           can only be done when in low life and Maxed.
+                    
+     Side Step          - (x)+(a)
+                          
+     Attack             - (x) or (y)
+     (During Sidestep)
+
+     Charge Power       - (x)+(y)
+
+     Safe Fall Recovery - (x)+(a)  
+
+     Hop Forward        - F, F
+
+     Guard Cancel rolls/Knockdown - See Above
+            
+ =====================
+  ** KOF'99 GROOVE:                           
+ =====================     
+
+     NOTE: DMs use 1 power stock and SDMs can only be done when with one power stock 
+           in low life. You can cancel dodge back into any special, DM, or SDM move.
+             
+     Slide Forward      - (x)+(a)  
+
+     Attack             - (x) or (y)
+     (During Slide)
+     
+     Dodge Back         -  B, (x)+(a) 
+
+     Safe Fall Recovery - (x)+(a)  
+
+     Run Forward        - F, F
+
+     Guard Cancel rolls/Knockdown - See Above
+
+     Armor Mode         - (y)+(b)+(a) - Required Power = 3000 
+
+     Counter Mode       - (x)+(y)+(b) - Required Power = 3000
+
+ =====================
+  ** KOF'2K GROOVE:                           
+ =====================     
+
+     NOTE: DMs use 1 power stock while SDMs use 3 power stock and SDM's have a different cmd.
+           You'll have to press both punch or kick buttons to use the SDM.
+
+     Roll Forward       - (x)+(a)  
+       
+     Roll Back          -  B, (x)+(a) 
+
+     Safe Fall Recovery - (x)+(a)  
+
+     Run Forward        - F, F
+
+     Guard Cancel rolls/Knockdown - See Above
+
+     Armor Mode         - (y)+(b)+(a) - Required Power = 3000 
+
+     Counter Mode       - (x)+(y)+(b) - Required Power = 3000
+
+ =====================
+  ** MIX GROOVE:                           
+ =====================     
+
+     NOTE: DMs use 1 power stock while SDMs requires MAX or LOW LIFE with one power stock.
+           
+     Slide Forward      - (x)+(a)  
+
+     Attack             - (x) or (y)
+     (During Slide)
+
+     Side Step          - (x)+(a)
+                          
+     Attack             - (x) or (y)
+     (During Sidestep)
+
+     Roll Back          -  B, (x)+(a) 
+
+     Dodge Back ('99)   -  (a)+(b) 
+
+     Safe Fall Recovery - (x)+(a)  
+
+     Run Forward        - F, F
+
+     Guard Cancel rolls/Knockdown - See Above
+
+     Max                - (x)+(y)+(a)
+
+     Armor Mode         - (y)+(b)+(a) - Required Power = 3000 
+
+     Counter Mode       - (x)+(y)+(b) - Required Power = 3000
+
+
+ --------------------------------------------------------------------------------------------
+
+ =================================== END OF CMD.TXT =========================================

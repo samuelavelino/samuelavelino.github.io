@@ -1,0 +1,58 @@
+;---------------------------
+; NEOKYO KUSANAGI X 
+;   Version 1.0
+; BY: SANDER 71113
+;---------------------------
+
+;General Information
+
+[Info]
+Name         ="NeoKyo"
+DisplayName  ="NeoKyo 71113"
+Author       ="Sander71113"
+VersionDate  = 08,23,2004
+MugenVersion = 4,14,2001
+Pal.Defaults = 4, 6, 7, 8
+
+;Files for the player
+[Files]
+cmd      = neokyo.cmd        ;Hard Ai
+;cmd     = neomedmai.cmd     ;Medium level Ai
+;cmd     = neonoai.cmd          ;Low level Ai
+cns      = neokyo.cns        ;Constants
+stcommon = common1.cns       ;Common states (in data/)
+st       = neokyo.cns        ;States
+st1      = neokyoa.cns
+st2      = neokyob.cns
+st3      = neokyoc.cns
+st4      = neokyod.cns
+st5      = neokyoe.cns
+st6      = neokyof.cns
+st7      = neo-strikers.cns
+sprite   = neokyo.sff      ;Sprite
+anim     = neokyo.air      ;Animation
+sound    = kyo.snd          ;Sound
+pal1     = pal1n.act        ;Kyo-1  Mode [ '99   Groove]
+pal2     = pal2n.act        ;Kyo-2  Mode [ '99   Groove]
+pal3     = pal3n.act        ;Kyo99  Mode ['2000  Groove]
+pal4     = pal4n.act        ;Kyo98  Mode [ Adv   Groove]
+pal5     = pal5n.act        ;Kyo95  Mode [Extra  Groove]
+pal6     = pal6n.act        ;Kyo00  Mode ['2000  Groove]
+pal7     = pal7n.act        ;KyoMix Mode ['Mix   Groove]
+pal8     = pal8n.act        ;Random Mode [Random Groove]
+pal9     = pal9n.act        ;Random Mode [Random Groove]
+pal10    = pal10n.act       ;Random Mode [Random Groove]
+pal11    = pal11n.act       ;Random Mode [Random Groove]
+pal12    = pal12n.act       ;Random Mode [Random Groove]
+
+Arcade mode
+[Arcade]
+;intro.storyboard = intro.def
+ending.storyboard = neoending.def
+
+;NOTE:
+;PLS READ README.TXT, CMD.TXT AND HISTORY.TXT...
+
+;Product of Sander71113
+;http://go.to/sander71113
+;sander71113@yahoo.com

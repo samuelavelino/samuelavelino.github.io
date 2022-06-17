@@ -1,0 +1,707 @@
+; Ending cutscene for Neokyo Kusanagi X's KOF97 Ending.
+; MUGENIZED BY: SANDER71113
+; Like the intro, this storyboard has multiple scenes.
+; Each scene uses two overlay anims, one for the picture, and
+; another for the text.
+; The fadein and fadeout parameters are used to fade one screen
+; to the next.
+
+[SceneDef]
+spr = neoending.sff
+startscene = 0        ;Starting scene number (for debugging)
+
+;------------------------------------
+;START
+;Kyo & Zero
+[Scene 0]
+; Fade
+fadein.time = 200       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 10,-100,-100
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  1
+layer0.offset = 0,0
+layer0.starttime = 0 
+layer1.anim =  0     
+layer1.offset = 0,0
+layer1.starttime = 0
+layer2.anim =  2    
+layer2.offset = 0,0
+layer2.starttime = 100
+
+; Music
+bgm = ending1.mp3       ;Name of music file to play
+bgm.loop = 0
+; Total time
+end.time = 420
+;-------------------------------------------------------
+
+;------------------------------------
+;Zero 1
+[Scene 1]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 10,-100,-100
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  3
+layer0.offset = 0,0
+layer0.starttime = 0 
+layer1.anim =  0     
+layer1.offset = 0,0
+layer1.starttime = 0
+layer2.anim =  4 
+layer2.offset = 0,0
+layer2.starttime = 10
+end.time = 400
+
+;-------------------------------------------------------
+
+;------------------------------------
+;Kyo MAD
+[Scene 2]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 10,-100,-100
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  5
+layer0.offset = 0,0
+layer0.starttime = 0 
+layer1.anim =  0     
+layer1.offset = 0,0
+layer1.starttime = 0
+layer2.anim =  6 
+layer2.offset = 0,0
+layer2.starttime = 10
+end.time = 170
+
+;-------------------------------------------------------
+
+;------------------------------------
+;Zero 2
+[Scene 3]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 10,-100,-100
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  3
+layer0.offset = 0,0
+layer0.starttime = 0 
+layer1.anim =  0     
+layer1.offset = 0,0
+layer1.starttime = 0
+layer2.anim =  7 
+layer2.offset = 0,0
+layer2.starttime = 10
+end.time = 380
+;-------------------------------------------------------
+
+;------------------------------------
+;Kyo smile & iori
+[Scene 4]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 10,-100,-100
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  9
+layer0.offset = 0,0
+layer0.starttime = 70 
+layer1.anim =  8   
+layer1.offset = 0,0
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0
+layer3.anim =  10
+layer3.offset = 0,0
+layer3.starttime = 10
+end.time = 570
+;-------------------------------------------------------
+
+
+;------------------------------------
+;Iori
+[Scene 5]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 10,-100,-100
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  11
+layer0.offset = 0,0
+layer0.starttime = 0 
+layer1.anim =  0  
+layer1.offset = 0,0
+layer1.starttime = 0
+layer2.anim =  12
+layer2.offset = 0,0
+layer2.starttime = 10
+end.time = 170
+
+; Music
+;bgm = ending4.mp3       ;Name of music file to play
+;bgm.loop = 0
+;-------------------------------------------------------
+
+;------------------------------------
+;Kyo
+[Scene 6]
+; Fade
+fadein.time = 10       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 10
+fadeout.col = 10,-100,-100
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  13
+layer0.offset = 0,0
+layer0.starttime = 0 
+layer1.anim =  0  
+layer1.offset = 0,0
+layer1.starttime = 0
+layer2.anim =  14
+layer2.offset = 0,0
+layer2.starttime = 10
+end.time = 170
+;-------------------------------------------------------
+
+;Yuki
+[Scene 7]
+; Fade
+fadein.time = 40       ;Time to take for fading in
+fadein.col = 255,255,255     ;Use 255,255,255 for white-fade
+fadeout.time = 30
+fadeout.col = 255,255,255
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  15
+layer0.offset = 0,0
+layer0.starttime = 0 
+layer1.anim =  0  
+layer1.offset = 0,0
+layer1.starttime = 0
+end.time = 100
+;-------------------------------------------------------
+
+;Kyo & Iori
+[Scene 8]
+; Fade
+fadein.time = 100       ;Time to take for fading in
+fadein.col = 250,250,250     ;Use 255,255,255 for white-fade
+fadeout.time = 20
+fadeout.col = 255,255,255
+; Screen color
+clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  16
+layer0.offset = 0,0
+layer0.starttime = 0 
+layer1.anim =  17  
+layer1.offset = 0,0
+layer1.starttime = 0
+layer2.anim =  0
+layer2.offset = 0,0
+layer2.starttime = 0
+layer3.anim =  18  
+layer3.offset = 0,0
+layer3.starttime = 50
+end.time = 300
+
+;-------------------------------------------------------
+;FINALE
+;Kyo
+[Scene 9]
+; Fade
+fadein.time = 100       ;Time to take for fading in
+fadein.col = 250,250,250     ;Use 255,255,255 for white-fade
+fadeout.time = 100
+fadeout.col = 100,100,100
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  19
+layer0.offset = 0,0
+layer0.starttime = 0 
+layer1.anim =  20
+layer1.offset = 0,0
+layer1.starttime = 0
+end.time = 1000
+;-------------------------------------------------------
+
+;=======================================================================
+;---<> ANIMATIONS <>---
+;=======================================================================
+;-------------
+;SCENE 0
+;-------------
+;Back Ground
+[Begin Action 0]
+0,0, 0,0, -1
+
+;Kyo & Zero
+[Begin Action 1]
+1,0, 0, 60, 4
+1,0, 0, 59, 4
+1,0, 0, 58, 4
+1,0, 0, 57, 4
+1,0, 0, 56, 4
+1,0, 0, 55, 4
+1,0, 0, 54, 4
+1,0, 0, 53, 4
+1,0, 0, 52, 4
+1,0, 0, 51, 4
+1,0, 0, 50, 4
+1,0, 0, 49, 4
+1,0, 0, 48, 4
+1,0, 0, 47, 4
+1,0, 0, 46, 4
+1,0, 0, 45, 4
+1,0, 0, 44, 4
+1,0, 0, 43, 4
+1,0, 0, 42, 4
+1,0, 0, 41, 4
+1,0, 0, 40, 4
+1,0, 0, 39, 4
+1,0, 0, 38, 4
+1,0, 0, 37, 4
+1,0, 0, 36, 4
+1,0, 0, 35, 4
+1,0, 0, 34, 4
+1,0, 0, 33, 4
+1,0, 0, 32, 4
+1,0, 0, 31, 4
+1,0, 0, 30, 4
+1,0, 0, 29, 4
+1,0, 0, 28, 4
+1,0, 0, 27, 4
+1,0, 0, 26, 4
+1,0, 0, 25, 4
+1,0, 0, 24, 4
+1,0, 0, 23, 4
+1,0, 0, 22, 4
+1,0, 0, 21, 4
+1,0, 0, 20, 4
+1,0, 0, 19, 4
+1,0, 0, 18, 4
+1,0, 0, 17, 4
+1,0, 0, 16, 4
+1,0, 0, 15, 4
+1,0, 0, 14, 4
+1,0, 0, 13, 4
+1,0, 0, 12, 4
+1,0, 0, 11, 4
+1,0, 0, 10, 4
+1,0, 0, 9, 4
+1,0, 0, 8, 4
+1,0, 0, 7, 4
+1,0, 0, 6, 4
+1,0, 0, 5, 4
+1,0, 0, 4, 4
+1,0, 0, 3, 4
+1,0, 0, 2, 4
+1,0, 0, 1, 4
+1,0, 0, 0, -1
+
+;Text 0
+[Begin Action 2]
+2,0, 0,0, -1
+
+;-------------
+;SCENE 1
+;-------------
+;Zero
+[Begin Action 3]
+3,0, 0,0, -1
+
+;Text Scene 1
+[Begin Action 4]
+4, 0, 0,0, 170
+4,-1, 0,0, 20
+4, 1, 0,0, -1 
+
+
+;-------------
+;SCENE 2
+;-------------
+;Kyo Mad
+[Begin Action 5]
+5,0, 0,0, -1
+
+;Text Scene 2
+[Begin Action 6]
+6, 0, 0,0, -1
+
+
+;-------------
+;SCENE 3
+;-------------
+;Text Scene 3
+[Begin Action 7]
+7, 0, 0,0, 150
+7,-1, 0,0, 20
+7, 1, 0,0, -1
+
+
+;-------------
+;SCENE 4
+;-------------
+;Kyo
+[Begin Action 8]
+8, 0, 0,0, 190
+8, 1, 0,0, 190
+8, 2, 0,0, -1
+
+;Iori
+[Begin Action 9]
+9, 0, 40, 0, 4
+9, 0, 39, 0, 4
+9, 0, 38, 0, 4
+9, 0, 37, 0, 4
+9, 0, 36, 0, 4
+9, 0, 35, 0, 4
+9, 0, 34, 0, 4
+9, 0, 33, 0, 4
+9, 0, 32, 0, 4
+9, 0, 31, 0, 4
+9, 0, 30, 0, 4
+9, 0, 29, 0, 4
+9, 0, 28, 0, 4
+9, 0, 27, 0, 4
+9, 0, 26, 0, 4
+9, 0, 25, 0, 4
+9, 0, 24, 0, 4
+9, 0, 23, 0, 4
+9, 0, 22, 0, 4
+9, 0, 21, 0, 4
+9, 0, 20, 0, 4
+9, 0, 19, 0, 4
+9, 0, 18, 0, 4
+9, 0, 17, 0, 4
+9, 0, 16, 0, 4
+9, 0, 15, 0, 4
+9, 0, 14, 0, 4
+9, 0, 13, 0, 4
+9, 0, 12, 0, 4
+9, 0, 11, 0, 4
+9, 0, 10, 0, 4
+9, 0, 9, 0, 4
+9, 0, 8, 0, 4
+9, 0, 7, 0, 4
+9, 0, 6, 0, 4
+9, 0, 5, 0, 4
+9, 0, 4, 0, 4
+9, 0, 3, 0, 4
+9, 0, 2, 0, 4
+9, 0, 1, 0, 4
+9, 0, 0, 0, -1
+
+;Text Scene 4
+[Begin Action 10]
+10, 0, 0,0, 170
+10, -1,0,0, 20
+10, 1, 0,0, 170
+10, -1,0,0, 20
+10, 2, 0,0, -1
+
+
+;-------------
+;SCENE 5
+;-------------
+
+;Iori
+[Begin Action 11]
+11, 0, 50, 0, 1
+11, 0, 49, 0, 1
+11, 0, 48, 0, 1
+11, 0, 47, 0, 1
+11, 0, 46, 0, 1
+11, 0, 45, 0, 1
+11, 0, 44, 0, 1
+11, 0, 43, 0, 1
+11, 0, 42, 0, 1
+11, 0, 41, 0, 1
+11, 0, 40, 0, 1
+11, 0, 39, 0, 1
+11, 0, 38, 0, 1
+11, 0, 37, 0, 1
+11, 0, 36, 0, 1
+11, 0, 35, 0, 1
+11, 0, 34, 0, 1
+11, 0, 33, 0, 1
+11, 0, 32, 0, 1
+11, 0, 31, 0, 1
+11, 0, 30, 0, 1
+11, 0, 29, 0, 1
+11, 0, 28, 0, 1
+11, 0, 27, 0, 1
+11, 0, 26, 0, 1
+11, 0, 25, 0, 1
+11, 0, 24, 0, 1
+11, 0, 23, 0, 1
+11, 0, 22, 0, 1
+11, 0, 21, 0, 1
+11, 0, 20, 0, 1
+11, 0, 19, 0, 1
+11, 0, 18, 0, 1
+11, 0, 17, 0, 1
+11, 0, 16, 0, 1
+11, 0, 15, 0, 1
+11, 0, 14, 0, 1
+11, 0, 13, 0, 1
+11, 0, 12, 0, 1
+11, 0, 11, 0, 1
+11, 0, 10, 0, 1
+11, 0, 9, 0, 1
+11, 0, 8, 0, 1
+11, 0, 7, 0, 1
+11, 0, 6, 0, 1
+11, 0, 5, 0, 1
+11, 0, 4, 0, 1
+11, 0, 3, 0, 1
+11, 0, 2, 0, 1
+11, 0, 1, 0, 1
+11, 0, 0, 0, -1
+
+;Text Scene 5
+[Begin Action 12]
+12, 0, 0,0, -1
+
+;-------------
+;SCENE 6
+;-------------
+
+;Kyo
+[Begin Action 13]
+13, 0, -50, 0, 1
+13, 0, -49, 0, 1
+13, 0, -48, 0, 1
+13, 0, -47, 0, 1
+13, 0, -46, 0, 1
+13, 0, -45, 0, 1
+13, 0, -44, 0, 1
+13, 0, -43, 0, 1
+13, 0, -42, 0, 1
+13, 0, -41, 0, 1
+13, 0, -40, 0, 1
+13, 0, -39, 0, 1
+13, 0, -38, 0, 1
+13, 0, -37, 0, 1
+13, 0, -36, 0, 1
+13, 0, -35, 0, 1
+13, 0, -34, 0, 1
+13, 0, -33, 0, 1
+13, 0, -32, 0, 1
+13, 0, -31, 0, 1
+13, 0, -30, 0, 1
+13, 0, -29, 0, 1
+13, 0, -28, 0, 1
+13, 0, -27, 0, 1
+13, 0, -26, 0, 1
+13, 0, -25, 0, 1
+13, 0, -24, 0, 1
+13, 0, -23, 0, 1
+13, 0, -22, 0, 1
+13, 0, -21, 0, 1
+13, 0, -20, 0, 1
+13, 0, -19, 0, 1
+13, 0, -18, 0, 1
+13, 0, -17, 0, 1
+13, 0, -16, 0, 1
+13, 0, -15, 0, 1
+13, 0, -14, 0, 1
+13, 0, -13, 0, 1
+13, 0, -12, 0, 1
+13, 0, -11, 0, 1
+13, 0, -10, 0, 1
+13, 0, -9, 0, 1
+13, 0, -8, 0, 1
+13, 0, -7, 0, 1
+13, 0, -6, 0, 1
+13, 0, -5, 0, 1
+13, 0, -4, 0, 1
+13, 0, -3, 0, 1
+13, 0, -2, 0, 1
+13, 0, -1, 0, 1
+13, 0, 0, 0, -1
+
+;Text Scene 6
+[Begin Action 14]
+14, 0, 0,0, -1
+
+;-------------
+;SCENE 7
+;-------------
+;Yuki
+[Begin Action 15]
+15, 0, 0,0, -1
+
+
+;-------------
+;SCENE 8
+;-------------
+
+;Kyo
+[Begin Action 16]
+16, 0, -50, 0, 1
+16, 0, -49, 0, 1
+16, 0, -48, 0, 1
+16, 0, -47, 0, 1
+16, 0, -46, 0, 1
+16, 0, -45, 0, 1
+16, 0, -44, 0, 1
+16, 0, -43, 0, 1
+16, 0, -42, 0, 1
+16, 0, -41, 0, 1
+16, 0, -40, 0, 1
+16, 0, -39, 0, 1
+16, 0, -38, 0, 1
+16, 0, -37, 0, 1
+16, 0, -36, 0, 1
+16, 0, -35, 0, 1
+16, 0, -34, 0, 1
+16, 0, -33, 0, 1
+16, 0, -32, 0, 1
+16, 0, -31, 0, 1
+16, 0, -30, 0, 1
+16, 0, -29, 0, 1
+16, 0, -28, 0, 1
+16, 0, -27, 0, 1
+16, 0, -26, 0, 1
+16, 0, -25, 0, 1
+16, 0, -24, 0, 1
+16, 0, -23, 0, 1
+16, 0, -22, 0, 1
+16, 0, -21, 0, 1
+16, 0, -20, 0, 1
+16, 0, -19, 0, 1
+16, 0, -18, 0, 1
+16, 0, -17, 0, 1
+16, 0, -16, 0, 1
+16, 0, -15, 0, 1
+16, 0, -14, 0, 1
+16, 0, -13, 0, 1
+16, 0, -12, 0, 1
+16, 0, -11, 0, 1
+16, 0, -10, 0, 1
+16, 0, -9, 0, 1
+16, 0, -8, 0, 1
+16, 0, -7, 0, 1
+16, 0, -6, 0, 1
+16, 0, -5, 0, 1
+16, 0, -4, 0, 1
+16, 0, -3, 0, 1
+16, 0, -2, 0, 1
+16, 0, -1, 0, 1
+16, 0, 0, 0, -1
+
+;Iori
+[Begin Action 17]
+17, 0, 50, 0, 1
+17, 0, 49, 0, 1
+17, 0, 48, 0, 1
+17, 0, 47, 0, 1
+17, 0, 46, 0, 1
+17, 0, 45, 0, 1
+17, 0, 44, 0, 1
+17, 0, 43, 0, 1
+17, 0, 42, 0, 1
+17, 0, 41, 0, 1
+17, 0, 40, 0, 1
+17, 0, 39, 0, 1
+17, 0, 38, 0, 1
+17, 0, 37, 0, 1
+17, 0, 36, 0, 1
+17, 0, 35, 0, 1
+17, 0, 34, 0, 1
+17, 0, 33, 0, 1
+17, 0, 32, 0, 1
+17, 0, 31, 0, 1
+17, 0, 30, 0, 1
+17, 0, 29, 0, 1
+17, 0, 28, 0, 1
+17, 0, 27, 0, 1
+17, 0, 26, 0, 1
+17, 0, 25, 0, 1
+17, 0, 24, 0, 1
+17, 0, 23, 0, 1
+17, 0, 22, 0, 1
+17, 0, 21, 0, 1
+17, 0, 20, 0, 1
+17, 0, 19, 0, 1
+17, 0, 18, 0, 1
+17, 0, 17, 0, 1
+17, 0, 16, 0, 1
+17, 0, 15, 0, 1
+17, 0, 14, 0, 1
+17, 0, 13, 0, 1
+17, 0, 12, 0, 1
+17, 0, 11, 0, 1
+17, 0, 10, 0, 1
+17, 0, 9, 0, 1
+17, 0, 8, 0, 1
+17, 0, 7, 0, 1
+17, 0, 6, 0, 1
+17, 0, 5, 0, 1
+17, 0, 4, 0, 1
+17, 0, 3, 0, 1
+17, 0, 2, 0, 1
+17, 0, 1, 0, 1
+17, 0, 0, 0, -1
+
+;Text Scene 8
+[Begin Action 18]
+18, 0, 0,0, -1
+
+;-------------
+;SCENE 9
+;-------------
+
+;Kyo Final
+[Begin Action 19]
+19, 0, 0,0, -1
+
+;Final Text
+[Begin Action 20]
+20, 0, 0,0, -1
+
+
+
+;=========================================================
+;---<> Email   : sander71113@yahoo.com 
+;=========================================================
+;---<> WEBPAGE : http://www.angelfire.com/jazz/sander71113
+;              : http://go.to/sander71113
+;=========================================================

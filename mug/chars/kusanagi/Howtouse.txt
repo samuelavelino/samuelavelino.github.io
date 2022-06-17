@@ -1,0 +1,16 @@
+Paste the lines below to your select.def:
+
+Kusanagi, 
+kusanagi/neokyo.def
+
+This will give you 2 versions of Kyo on your Roster namely:
+
+Kusanagi - Original Kyo
+Neokyo - KOF2000-2002 Costume
+
+To USE MIX MODE RIGHT FROM THE START:
+Press and hold start then press (a) button when selecting Kyo.
+Remember that each palette or button you use to select Kyo 
+represents a different Mode / Groove combination.
+
+For more info on Groove And Mode check Readme.txt! L2P!

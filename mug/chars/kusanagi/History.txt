@@ -1,0 +1,270 @@
+            =======================================================================
+                   --------------------| SANDER 71113 |-------------------
+                                    sander71113@yahoo.com
+                                   http://go.to/sander71113 
+
+---------------------
+NEOKYO 71113 HISTORY:
+---------------------
+
+ *** DONE: ***
+
+ 07/06/2008
+ - AI Tweaks
+ - Kusanagi Mode added
+ - Guardhittime and Ctrltime fixed
+ - Included working Ending
+ - AI is set to use Mix Mode and Groove automatically
+
+ 1/11/2005
+ - WinMugen Patch made by Winane, 
+   compiled all files in 1 rar file. ^^
+
+  11/22/2002
+ - AI Tweak
+ - Added medium AI
+ - Cvs intro vs Ryu
+ - Bug fixes
+
+  7/5/2002
+ - Added better A.I. (Hard only)
+ - More fixes
+
+  5/17/2002
+ - Added KOF2K1 sprites.
+ - Basic velocities fixed (KOF2001 based).
+ - KOF2K1 intro vs iori.
+ - Used actual Kof clsns.
+ - Axis problems fixed.
+ - Hitdefs overhaul.
+ - Bugfixes and tweaks.
+ - Modes Kyo95 - 2K now uses KOF98 damage.
+ - Modes Kyomix and Kyo2K1 now use KOF2K1 damage.
+ - Modified the sdm version of 182 shiki (KOF99) and 142 shiki (KOF2K).
+ - Fixed running and jumping state.
+ - Cvs2 samples added.
+ - Tweaked palettes.
+ - No AI yet.
+
+
+ 12/17/2001
+ - Finally... NeokyoX Version 1.0.
+ - Fixed and tweaked a lot of things. I can't think of anything else to fix (as of now :P)
+ - 3 level Ai
+ 
+ 12/14/2001
+ - NeokyoX ending...
+
+ 12/10/2001
+ - NeokyoX has been delayed much. But the wait is almost over.
+   I uploaded the "almost" complete version today ^_^.
+   I just need good testers to check him out and see if there are bugs or issues.
+   Enjoy.   
+
+ 12/5/2001
+ - EVERYTHING IS DONE.. codewise.
+ - Expanded his taunts. Now you have 4 taunts:
+    Taunt 1 = start         : KOF98 style taunt -Cancelable-
+    Taunt 2 = Down+start    : KOF2000 Style Taunt -Striker Bomb Add-
+    Taunt 3 = Forward+start : Groove Selection
+    Taunt 4 = Back+start    : Mode Selection
+ - Added transparent groove and mode chart.
+ - Added saisyu striker 
+
+ 11/27/2001
+ - KOF2K1 mode beta (start and press b -hard kick- in select screen)
+ - Check kofonline for the movelist :P
+ - A few fixes.
+
+ 11/22/2001
+ - Done everything. Just missing a few edits.
+
+ 11/18/2001 
+ - NeokyoX updated. 3 strikers added.
+
+11/13/2001 
+ - NeokyoX alternative sff beta uploaded... ALL KOF 2000 moves in :)
+
+
+ *** IN THE WORKS: ***
+ - Intro Story Board
+
+
+---------------------
+KYO 71113 HISTORY:
+---------------------
+
+  *** DONE: ***
+
+ 07/06/2008
+ - AI Tweaks
+ - Kusanagi Mode added
+ - Guardhittime and Ctrltime fixed
+ - Included working Ending
+ - AI is set to use Mix Mode and Groove automatically
+
+
+ 11/22/2002
+ - AI Tweaks
+ - Added medium AI
+ - Cvs intro vs Ryu
+ - KOF2K1 intro vs Iori
+ - Bug fixes
+
+ 05/25/02
+ - Using neokyoX codes.
+ - More added stuff
+
+ 10/27/01
+ - SFF realignment -_-;
+ - Hard AI implemented
+ - More optomization, tweaks, fixes
+ - Palette Fixes
+
+ 10/19/01
+ - Goro Daimon Striker
+ - Benimaru Nikaido Striker
+ - More Optimization, Tweaks, Fixes
+
+ 10/06/01
+ - Counter Mode
+ - Bug fixes
+ - Story Board Glitch Fix
+ - 99 style Fwd-Lk  
+
+ 10/04/01
+ - More Striker animation/sound
+ - More Optimization
+ - More tweaks
+ - Added 2K sounds
+ 
+ 09/30/01
+ - Kyo '99 Mode now has all Specials/DM/SDMS
+ - Kyo '2000 Mode now has all Specials/DMS/SDMS
+ - Striker toggle (on/off) during intro
+ - A few more tweaks
+
+ 09/27/01
+ - Different striker attack when throwing opponent (KOF2000)
+ - Fixed Burn explod bugs
+
+ 09/26/01
+ - Optimized codes a bit
+ - Armor mode for 99/2K groove
+ - 99 dodge back fix (can cancel into special/DM/SDM)
+
+ 09/21/01
+ - Kyo-99 Mode
+   - light Shiki kototsuki you 99
+   - 182 Shiki DM/SDM
+ - Better Documentation
+ - Some fixes 
+
+ 09/19/01
+ - Kyo-1/Kyo-2 Proper Palette
+ - Juggle Problems Fixed
+ - Fixed Yama barai animation timings for kyo-1
+ - More tweaks than I could recall :P
+
+ 09/16/01
+ - Bug fixes
+
+ 09/14/01
+ - Shingo Active Striker
+ - Adds, Tweaks, Fixes
+ - SFF fix
+
+ 09/09/01
+ - Kyo-2 Mode
+ - Added 2 palettes for kyo-1 and kyo-2 selection
+ - A few fixes
+
+ 09/07/01
+ - 99 Groove working w/o Armor/Counter mode and striker
+ - 2K Groove working w/o Armor/Counter mode and striker 
+
+ 09/06/01
+ - Kyo-1 Mode
+
+ 09/04/01
+ - Bug Fixed as adviced by [E]
+    - Down+y is do-able while hopping forward (EXTRA MODE)
+    - After a Cd counter, the Qcf+a should hit fully.
+    - Fixed Axe kick (Fwd+a) command issue 
+    - Tweaked his jumping velocities a bit
+    - Movecontact removed from combo system
+    - Time of cmd execution shortened
+    - Fixed 101 Shiki: Oboro Guruma to juggle properly in corners
+
+ 08/30/01
+ - Saihuu Kessen Ougi: Mu Shiki (DM/SDM)
+ - GROOVE Selection (Adv...Extra...Mix)
+ - MODE Seelction (98...95...Mix) 
+ - This version is already a complete KOF classic Kyo ^_^,
+   Still Beta Because I still am adding modes and grooves.
+
+ 08/26/01
+ - Ura Hyaku Hachi Shiki: Orochi Nagi (DM/SDM)
+ - More Tweaks
+
+ 08/25/01 
+ - 115 Shiki: Doku Gami
+ - 401 Shiki: Tsumi Yomi
+ - 402 Shiki: Batsu Yomi
+ - More Tweaks
+
+ 08/24/01
+ - 114 Shiki: Ara Gami
+ - 128 Shiki: Kuu Kizu
+ - 127 Shiki: Ya Sabi 
+ - Ge Shiki: Migiri Ugachi 1 & 2
+ - 125 Shiki: Nana Se
+ - Some more tweaks
+
+ 08/16/01
+ - 212 Shiki: Kototsuki You Type 1
+ - 900 Shiki: Nue Tsumi
+ - some tweaks
+
+ 08/13/01
+ - 100 Shiki: Oni Yaki
+ - 108 Shiki: Yami Barai
+ - Fixed air.vel
+ - Some veloocity fixes
+ - BASIC AI
+
+ 08/09/01
+ - 101 Shiki: Oboro Guruma
+
+ 08/08/01
+ - R.E.D. Kick
+
+ 08/07/01
+ - 75 shiki: Kai (Fixed)
+ - Groove Select (ADV-EX-MIX only)
+
+ 08/06/01
+ - Guard Crush Code
+ - Counter Hit Code (extra juggle)
+ - 75 shiki: Kai
+
+ 08/04/01
+ - Throw Cancel
+
+
+ 08/02/01
+ - All Basic Attacks 
+ - All throws
+ - Dizzy Code
+ 
+ 07/26/01
+ - Basic Animations
+ - All required animations / sprites
+ - Fixed Kof Style Advanced Jumps 
+ - 4 Prefight Intros/ 4 Winposes
+  
+*** IN THE WORKS: ***
+ - Intro Story Board
+
+ =================================== END OF HISTORY.TXT =======================================
+ 

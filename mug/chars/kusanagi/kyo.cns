@@ -1,0 +1,3624 @@
+;===============================
+; KYO KUSANAGI X'S BASIC CODING
+;===============================
+
+[Data]
+life = 1000          ;Amount of life to start with
+attack = 100         ;100% attack power (more is stronger)
+defence = 100        ;100% defensive power (more is stronger)
+fall.defence_up = 90 ;Def goes up by 50% everytime player is hit on ground
+liedown.time = 60    ;Time player takes before getting up from HIT_LIEDOWN
+airjuggle = 15       ;Can do 15 points of juggling
+sparkno = 0          ;Default spark number
+guard.sparkno = 0    ;Default guard spark number
+volume = 0
+IntPersistIndex=1
+FloatPersistIndex=0
+KO.echo = 0          ;1 to enable echo on KO
+power = 3000
+
+[Size]
+xscale = 1           ;Horizontal scaling factor.
+yscale = 1           ;Vertical scaling factor.
+ground.back = 21     ;Player width (back, ground)
+ground.front = 14    ;Player width (front, ground)
+air.back = 16        ;Player width (back, air)
+air.front = 18       ;Player width (front, air)
+z.width = 3          ;Player width (into and out)
+attack.width = 0     ;Default attack width: back, front
+attack.dist = 160    ;Default attack distance
+proj.attack.dist = 90;Default attack distance for projectiles
+head.pos = -6, -105   ;Approximate position of head
+mid.pos = -5, -62    ;Approximate position of midsection
+
+[Velocity]
+walk.fwd  = 3             ;Walk forward
+walk.back = -2            ;Walk backward
+run.fwd  = 6.2            ;Run forward (x, y)  - if y<0, player will hop
+run.back = -6,-4          ;Run backward (x, y) - if y=0, player will run
+jump.neu = 0,-10.4        ;Neutral jumping velocity (x, y)
+jump.back = -3.15, -10.4   ;Jump back Speed (x, y)
+jump.fwd = 3.15,-10.4      ;Jump forward Speed (x, y)
+runjump.fwd = 4,-9.7      ;.
+airjump.neu = 0,-9.7      ;.
+airjump.back = -2.55,-9.7 ;Air jump speeds (opt)
+airjump.fwd = 2.5,-9.7    ;.
+
+[Movement]
+airjump.num = 0       ;Number of air jumps allowed (opt)
+airjump.height = 35   ;Minimum distance from ground before you can air jump (opt)
+yaccel = .6365        ;Vertical acceleration
+stand.friction = .82  ;Friction coefficient when standing
+crouch.friction = .82 ;Friction coefficient when crouching
+
+;VARIABLE ASSIGNMENTS:
+;Var(1)  = sidestep/roll/slide attack
+;Var(2)  = KOF2K2 Max Power limitter
+;Var(3)  = Fwd Light kick
+;Var(4)  = Throw Limitter
+;Var(5)  = Special Throw Limitter 
+;Var(6)  = Attack Mulset T
+;Var(7)  = Throw Cancel
+;Var(8)  = Kof Style Jumps
+;Var(9)  = Artificial Intelligence I
+;Var(10) = Max Timer 
+;Var(11) = Dizzy Countdown
+;Var(12) = Guard Crush Countdown
+;Var(13) = 75 Shiki: Kai Nothitby
+;Var(14) = Dizzy Switch
+;Var(15) = Counter Hit Detect
+;Var(16) = Counter Hit
+;Var(17) = 1 : 75 Shiki: Kai light
+;Var(17) = 2 : 75 Shiki: Kai hard
+;Var(18) = Extra Groove Power Meter
+;Var(19) = Kai Juggle 2nd kick
+;Var(21) = 0 : Advanced Groove
+;Var(21) = 1 : Extra Groove
+;Var(21) = 2 : Mix Groove
+;Var(21) = 3 : 99 Groove
+;Var(21) = 4 : 2K Groove
+;Var(21) = 5 : 2K1 Groove
+;Var(21) = 6 : 2K2 Groove
+;Var(22) = 101 Shiki: Oni Yaki Type 1 Hit detect
+;Var(23) = Burn Hit Detect
+;Var(24) = 101 Shiki: Oni Yaki Hit miss
+;Var(25) = 1 : 128 Shiki: Kuu Kizu : 401 Shiki: Tsumi Yomi
+;Var(25) = 2 : 127 Shiki: Ya Sabi  : 402 Shiki: Batsu Yomi 
+;Var(26) = 1 : Ge Shiki: Migiri Ugachi
+;Var(26) = 2 : 125 Shiki: Nana Se
+;Var(27) = Normal Burn
+;Var(28) = Low Burn
+;Var(29) = Burn state
+;Var(30) = Mushiki repeats
+;Var(31) = Striker Toggle ON/OFF
+;Var(32) = Orochi Nagi Juggle check 
+;Var(33) = command buffer
+;Var(34) = Striker Bombs
+;Var(35) = Striker Juggle Check
+;Var(36) = Juggle Fix
+;Var(37) = Armor Var
+;Var(38) = Armor Stateno Var 
+;Var(39) = Cmd Optimization
+;Var(40) = Counter Mode
+;Var(41) = 0 : Kyo'98 Mode
+;Var(41) = 1 : Kyo'95 Mode
+;Var(41) = 2 : Mix Mode
+;Var(41) = 3 : Kyo-1 Mode
+;Var(41) = 4 : Kyo-2 Mode
+;Var(41) = 5 : Kyo'99 Mode
+;Var(41) = 6 : Kyo'2K1/2K2 Mode
+;Var(41) = 7 : Kyo'00 Mode
+;Var(41) = 8 : Kusanagi Mode
+;Var(42) = Counter Mode Combo Var
+;Var(43) = 0 : A_iori Striker
+;Var(43) = 1 : Kyoko Striker
+;Var(43) = 2 : Syo Striker
+;Var(43) = 3 : Saisyu Striker
+;Var(44) = Shiki Kai Limiter
+;Var(45) = Special Cancel Checker
+;Var(46) = Hikigane Juggle Limitter
+;Var(47) = Hikigane Hitadd
+;Var(48) = Basic Max Cancel
+
+;====================================
+;INITIALIZE
+[Statedef 5900]
+type = S
+
+[State 5900, 1] ;Clear all int variables
+type = VarRangeSet
+trigger1 = !RoundsExisted
+value = 0
+
+[State 5900, 2] ;Clear all float variables
+type = VarRangeSet
+trigger1 = !RoundsExisted
+fvalue = 0
+
+;---------------------------------
+;PAL1
+[State 5900, Kyo-1]
+type = Varset
+triggerall = var(9)= 1
+trigger1 = !RoundsExisted
+var(21) = 3
+[State 5900, kyo-1] 
+type = Varset
+triggerall = var(9)= 1
+trigger1 = !RoundsExisted
+var(41) = 3
+;-----------------------------------
+;PAL2
+[State 5900, Kyo-2]
+type = Varset
+triggerall = palno = 2
+trigger1 = !RoundsExisted
+var(21) = 3
+[State 5900, Kyo-2] 
+type = Varset
+triggerall = palno = 2
+trigger1 = !RoundsExisted
+var(41) = 4
+;---------------------------------
+;PAL3
+[State 5900, 99]
+type = Varset
+triggerall = palno = 3
+trigger1 = !RoundsExisted
+var(21) = 3
+[State 5900, 99] 
+type = Varset
+triggerall = palno = 3
+trigger1 = !RoundsExisted
+var(41) = 5
+;-----------------------------------
+;PAL4
+[State 5900, 98]
+type = Varset
+triggerall = palno = 4
+trigger1 = !RoundsExisted
+var(21) = 0
+[State 5900, 98] 
+type = Varset
+triggerall = palno = 4
+trigger1 = !RoundsExisted
+var(41) = 0
+;-----------------------------------
+;PAL5
+[State 5900, 95]
+type = Varset
+triggerall = palno = 5
+trigger1 = !RoundsExisted
+var(21) = 1
+[State 5900, 95] 
+type = Varset
+triggerall = palno = 5
+trigger1 = !RoundsExisted
+var(41) = 1
+;-----------------------------------
+;PAL6
+[State 5900, Kyo-2000]
+type = Varset
+triggerall = palno = 6
+trigger1 = !RoundsExisted
+var(21) = 4
+[State 5900, Kyo-2000] 
+type = Varset
+triggerall = palno = 6
+trigger1 = !RoundsExisted
+var(41) = 7
+;-----------------------------------
+;PAL7
+[State 5900, Mix]
+type = Varset
+triggerall = palno = 7
+trigger1 = !RoundsExisted
+var(21) = 2
+[State 5900, Mix] 
+type = Varset
+triggerall = palno = 7
+trigger1 = !RoundsExisted
+var(41) = 2
+;-----------------------------------
+;PAL8
+[State 5900, KYO-2002]
+type = Varset
+triggerall = palno = 8
+trigger1 = !RoundsExisted
+var(21) = 6 
+[State 5900, KYO-2001] 
+type = Varset
+triggerall = palno = 8
+trigger1 = !RoundsExisted
+var(41) = 6
+;-----------------------------------
+;PAL9
+[State 5900, KUSANAGI]
+type = Varset
+triggerall = palno = 9
+trigger1 = !RoundsExisted
+var(21) = 6
+[State 5900, KUSANAGI] 
+type = Varset
+triggerall = palno = 9
+trigger1 = !RoundsExisted
+var(41) = 8
+;-----------------------------------------
+;PAL10
+[State 5900, Random]
+type = Varrandom
+triggerall = palno > 9
+trigger1 = !RoundsExisted
+v = 21 
+range = 5
+[State 5900, Random] 
+type = Varrandom
+triggerall = palno > 9
+trigger1 = !RoundsExisted
+v = 41 
+range = 8
+;-----------------------------------
+;=========================================================
+;#Kyo
+[State 5900, StrikerSet] 
+type = Varrandom
+triggerall = var(43) <= 0
+triggerall = roundstate = 0
+trigger1 = !RoundsExisted
+persistent = 0
+v = 43
+range = 2
+
+[State 5900, StrikerSet] 
+type = Varrandom
+triggerall = p2name != "Shingo Yabuki" && p4name != "Shingo Yabuki"
+triggerall = p2name != "Goro Daimon" && p4name != "Goro Daimon"
+triggerall = p2name != "Benimaru Nikaido" && p4name != "Benimaru Nikaido"
+triggerall = var(31) <= 0
+triggerall = roundstate = 0
+trigger1 = !RoundsExisted
+persistent = 0
+v = 31
+range = 1
+
+[State 5900, StrikerSet] 
+type = Varset
+triggerall = p2name = "Shingo Yabuki" || p4name = "Shingo Yabuki"
+triggerall = p2name = "Goro Daimon" || p4name = "Goro Daimon"
+triggerall = p2name = "Benimaru Nikaido" || p4name = "Benimaru Nikaido"
+triggerall = roundstate = 0
+trigger1 = !RoundsExisted
+persistent = 0
+var(34) = 0
+
+[State 5900, StrikerSet] 
+type = Varset
+trigger1 = !RoundsExisted
+var(34) = 3
+
+[State 5900, Strikeradd] 
+type = Varadd
+trigger1 = roundsexisted > 0
+persistent = 0
+var(34) = 1
+
+;==========================================================
+;VAR RESETS
+[State 5900, reset]
+type = VarSet
+trigger1 = RoundState = 0 
+trigger2 = RoundState = 3
+var(3) = 0
+
+[State 5900, reset]
+type = VarSet
+trigger1 = RoundState = 0 
+trigger2 = RoundState = 3
+var(7) = 0
+
+[State 5900, reset]
+type = VarSet
+trigger1 = RoundState = 0 
+trigger2 = RoundState = 3
+var(10) = 0
+
+[State 5900, reset]
+type = VarSet
+trigger1 = RoundState = 0 
+trigger2 = RoundState = 3
+var(12) = 0
+
+[State 5900, reset]
+type = VarSet
+trigger1 = RoundState = 0 
+trigger2 = RoundState = 3
+var(13) = 0
+
+[State 5900, reset]
+type = VarSet
+trigger1 = RoundState = 0 
+trigger2 = RoundState = 3
+var(14) = 0
+
+[State 5900, reset]
+type = VarSet
+trigger1 = RoundState = 0 
+trigger2 = RoundState = 3
+var(15) = 0
+
+[State 5900, reset]
+type = VarSet
+trigger1 = RoundState = 0 
+trigger2 = RoundState = 3
+var(16) = 0
+
+[State 5900, reset]
+type = VarSet
+trigger1 = RoundState = 0 
+trigger2 = RoundState = 3
+var(17) = 0
+
+[State 5900, reset]
+type = VarSet
+trigger1 = RoundState = 0 
+trigger2 = RoundState = 3
+var(18) = 0
+
+[State 5900, reset]
+type = VarSet
+trigger1 = RoundState = 0 
+trigger2 = RoundState = 3
+var(19) = 0
+
+[State 5900, reset]
+type = varset
+trigger1 = roundstate = 0  || roundstate = 4
+var(37) = 0
+
+[State 5900, reset]
+type = varset
+trigger1 = roundstate = 0 || roundstate = 4
+var(40) = 0
+;=====================================================================
+
+[State 5900, 3] ;Intro
+type = ChangeState
+trigger1 = roundno = 1
+trigger2 = p2name = "Iori Yagami" || p4name = "Iori Yagami" || P2name = "Iori" || p4name = "Iori" 
+trigger2 = teammode = turns
+trigger2 = roundno > 1 && roundsexisted <= 0
+value = 190
+
+[State 5900, Turns Mode Intro]
+type = ChangeState
+trigger1 = p2name != "Iori Yagami" && p4name != "Iori Yagami" 
+trigger1 = P2name != "Iori" && p4name != "Iori" 
+trigger1 = teammode = turns
+trigger1 = roundno > 1
+trigger1 = roundsexisted <= 0
+trigger1 = roundstate = 0
+trigger1 = prevstateno != 197
+value = 189
+
+
+;===================================================================================
+;---<> OVER WRITE STAND <>---
+;============================
+; Stand
+[Statedef 0]
+type = S
+physics = S
+velset = 0,0
+sprpriority = 0
+
+[State 0, 1]
+type = ChangeAnim
+trigger1 = Anim != 0 && Anim != 5 && anim != 1
+trigger2 = Anim = 5 && AnimTime = 0
+trigger3 = anim = 1 && time = 0
+value = 0
+
+;AI ALWAYS USE MIXMODE
+[State 0, AIMIXGROOVE]
+type = Varset
+triggerall = var(21)!= 2
+trigger1 = var(9)= 1
+var(21) = 2
+
+[State 0, AIMIXMODE] 
+type = Varset
+triggerall = var(41)!= 2
+trigger1 = var(9)= 1
+var(41) = 2
+
+[State 0, 2]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 0, IDLE]
+type = ChangeAnim
+trigger1 = anim != 1
+trigger1 = time = 700
+value = 1
+
+[State 0, IDLE]
+type = Changestate
+trigger1 = anim = 1
+trigger1 = animtime = 0
+value = 0
+
+[State 0, ARMOR]
+type = HitOverride
+trigger1 = var(37) > 0
+time = 1
+slot = 2
+attr = SCA, AA, AP
+stateno = 4810
+
+[State 0, armor2]
+type = VarSet
+trigger1 = var(37) > 0
+trigger1 = time = 0
+var(38) = 0
+ignorehitpause = 1
+
+[State 0, 3] ;Stop moving if low velocity or 4 ticks pass
+type = VelSet
+trigger1 = Abs(Vel x) < 2
+trigger2 = Time = 4
+x = 0
+
+[State 0, 4] ;Are you dead?
+type = ChangeState
+trigger1 = !alive
+value = 5050
+
+;----------------------------------------------------------------------------
+;---<> STRIKER <>---
+;------------------
+;Shingo Yabuki
+[State 0, SHINGOMAIN1]
+type = Explod
+triggerall = var(43) = 0 && time = 0 && var(31) = 1 && teamside = 1
+trigger1 = numexplod(3910) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3910
+id   = 3910
+pos = 35,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, SHINGOMAIN2]
+type = Explod
+triggerall = var(43) = 0 && time = 0 && var(31) = 1 && teamside = 2
+trigger1 = numexplod(3910) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3910
+id   = 3910
+pos = -35,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = -1
+ontop = 1
+ownpal = 1
+
+[State 0, SHINGONAMEA]
+type = Explod
+triggerall = var(43) = 0 && time = 0 && var(31) = 1 && teamside = 1
+trigger1 = numexplod(3911) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3911
+id   = 3911
+pos = 35,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, SHINGONAMEB]
+type = Explod
+triggerall = var(43) = 0 && time = 0 && var(31) = 1 && teamside = 2
+trigger1 = numexplod(3911) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3911
+id   = 3911
+pos = -55,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+;-------------------------------------------------------------------
+;Goro Daimon
+[State 0, DAIMONMAIN1]
+type = Explod
+triggerall = var(43) = 1 && time = 0 && var(31) = 1 && teamside = 1
+trigger1 = numexplod(7090) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 7090
+id   = 7090
+pos = 35,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, DAIMONMAIN2]
+type = Explod
+triggerall = var(43) = 1 && time = 0 && var(31) = 1 && teamside = 2
+trigger1 = numexplod(7090) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 7090
+id   = 7090
+pos = -35,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = -1
+ontop = 1
+ownpal = 1
+
+[State 0, DAIMONNAMEA]
+type = Explod
+triggerall = var(43) = 1 && time = 0 && var(31) = 1 && teamside = 1
+trigger1 = numexplod(7095) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 7095
+id   = 7095
+pos = 35,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, DAIMONNAMEB]
+type = Explod
+triggerall = var(43) = 1 && time = 0 && var(31) = 1 && teamside = 2
+trigger1 = numexplod(7095) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 7095
+id   = 7095
+pos = -60,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+;-------------------------------------------------------------------
+
+;-------------------------------------------------------------------
+;Benimaru Nikaido
+[State 0, BENIMAIN1]
+type = Explod
+triggerall = var(43) = 2 && time = 0 && var(31) = 1 && teamside = 1
+trigger1 = numexplod(7200) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 7200
+id   = 7200
+pos = 35,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, BENIMAIN2]
+type = Explod
+triggerall = var(43) = 2 && time = 0 && var(31) = 1 && teamside = 2
+trigger1 = numexplod(7200) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 7200
+id   = 7200
+pos = -35,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = -1
+ontop = 1
+ownpal = 1
+
+[State 0, BENINAMEA]
+type = Explod
+triggerall = var(43) = 2 && time = 0 && var(31) = 1 && teamside = 1
+trigger1 = numexplod(7205) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 7205
+id   = 7205
+pos = 35,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, BENINAMEB]
+type = Explod
+triggerall = var(43) = 2 && time = 0 && var(31) = 1 && teamside = 2
+trigger1 = numexplod(7205) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 7205
+id   = 7205
+pos = -65,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+;-------------------------------------------------------------------
+
+
+[State 0, BOMB1A]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 1 && var(34) >= 1
+trigger1 = numexplod(3917) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3917
+pos = 35,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, BOMB1B]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 2 && var(34) >= 1
+trigger1 = numexplod(3917) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3917
+pos = -36,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, BOMB2A]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 1 && var(34) >= 2
+trigger1 = numexplod(3916) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3916
+pos = 50,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, BOMB2B]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 2 && var(34) >= 2
+trigger1 = numexplod(3916) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3916
+pos = -51,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, BOMB3A]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 1 && var(34) >= 3
+trigger1 = numexplod(3915) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3915
+pos = 65,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, BOMB3B]
+type = Explod
+triggerall = time = 0 &&  var(31) = 1 && teamside = 2 && var(34) >= 3
+trigger1 = numexplod(3915) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3915
+pos = -66,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, BOMB4A]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 1 && var(34) >= 4
+trigger1 = numexplod(3914) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3914
+pos = 80,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, BOMB4B]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 2 && var(34) >= 4
+trigger1 = numexplod(3914) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3914
+pos = -81,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, BOMB5A]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 1 && var(34) >= 5
+trigger1 = numexplod(3913) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3913
+pos = 95,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 0, BOMB5B]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 2 && var(34) >= 5
+trigger1 = numexplod(3913) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3913
+pos = -96,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+;--------------------------------------------------------------------
+
+
+
+
+
+
+
+
+;----------------------------------------------------------------------
+; Time over
+[Statedef 170]
+type = S
+anim = 170
+
+[State 170, 1]
+type = AssertSpecial
+trigger1 = Time = [0,280]
+flag = RoundNotOver
+
+;-------------------------------------
+; Win pose A MOERO
+[Statedef 180]
+type = S
+physics = S
+velset = 0
+anim = 180
+
+[State 180, 1]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = Command = "hold_a"
+trigger2 = Random <=300
+trigger2 = Command != "hold_a" && Command != "hold_b" && Command != "hold_x" && Command != "hold_y"
+value = 181
+
+[State 180, 2]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = Command = "hold_y"
+trigger2 = Random <=300
+trigger2 = Command != "hold_a" && Command != "hold_b" && Command != "hold_x" && Command != "hold_y"
+value = 182
+
+[State 180, 3]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = Command = "hold_b"
+trigger2 = Random <=300
+trigger2 = Command != "hold_a" && Command != "hold_b" && Command != "hold_x" && Command != "hold_y"
+value = 183
+
+[State 180, FLAME2]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = 3,2
+volume = 100
+
+[State 180, HEHE]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 4,1
+volume = 10
+
+[State 180, MOETARO]
+type = PlaySnd
+trigger1 = AnimElem = 6
+value = 4,2
+volume = 10
+
+[State 180, FLAME START]
+type = Explod
+trigger1 = AnimElem = 2
+id = 191
+anim = 191
+pos = 24,-96
+sprpriority = 2
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+removetime = 7
+ownpal = 1
+
+[State 180, FLAME X FIRE 1]
+type = Explod
+trigger1 = random <= 500
+trigger1 = numexplod(192) <= 0
+trigger1 = AnimElem = 2, = 6
+id = 192
+anim = 187
+pos = 24,-96
+sprpriority = 2
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+removetime = 17
+ownpal = 1
+
+[State 180, FLAME FIRE 1]
+type = Explod
+trigger1 = numexplod(192) <= 0
+trigger1 = AnimElem = 2, = 7
+id = 192
+anim = 192
+pos = 24,-96
+sprpriority = 2
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+removetime = 16
+ownpal = 1
+
+[State 180, FLAME FIRE 2]
+type = Explod
+trigger1 = AnimElem = 3
+id = 192
+anim = 192
+pos = 13,-99
+sprpriority = 2
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+removetime = 6
+ownpal = 1
+
+[State 180, FLAME FIRE 3]
+type = Explod
+trigger1 = AnimElem = 4
+id = 192
+anim = 192
+pos = 9,-99
+sprpriority = 2
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+removetime = 6
+ownpal = 1
+
+[State 180, FLAME OUT]
+type = Explod
+trigger1 = AnimElem = 5
+id = 193
+anim = 193
+pos = 4,-100
+sprpriority = 2
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 180, 9]
+type = AssertSpecial
+trigger1 = Time = [0,250]
+flag = RoundNotOver
+
+;==========================================
+; Win pose B FINGER
+[Statedef 181]
+type = S
+physics = S
+velset = 0
+anim = 181
+
+[State 181, HUHU]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 4,3
+volume = 50
+
+[State 181, ANTAJA]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 4,4
+volume = 50
+
+[State 181, 2]
+type = AssertSpecial
+trigger1 = Time = [0,280]
+flag = RoundNotOver
+
+;-------------------------------------------
+;Win pose C ORENO
+[Statedef 182]
+type = S
+physics = S
+velset = 0
+anim = 182
+
+[State 180, ORENO]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 4,5
+volume = 100
+
+[State 180, KACHIDA]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 4,6
+volume = 100
+
+[State 182, 3]
+type = AssertSpecial
+trigger1 = Time = [0,250]
+flag = RoundNotOver
+;-------------------------------------------------
+
+;Win pose D PAGPAG
+[Statedef 183]
+type = S
+physics = S
+velset = 0
+anim = 183
+
+[State 183, FLAME1]
+type = PlaySnd
+trigger1 = AnimElem = 3, =1
+value = 3,1
+volume = 30
+
+[State 183, FLAME2]
+type = PlaySnd
+trigger1 = AnimElem = 7
+value = 3,2
+volume = 100
+
+[State 183, FLAME START]
+type = Explod
+trigger1 = AnimElem = 3, = 1
+id = 191
+anim = 191
+pos = 44,-70
+sprpriority = -1
+removetime = 7
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 183, FLAME X FIRE 1]
+type = Explod
+trigger1 = random <= 500
+trigger1 = numexplod(192) <= 0
+trigger1 = AnimElem = 3, = 7
+id = 192
+anim = 187
+pos = 44,-70
+sprpriority = -1
+removetime = 54
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 183, FLAME FIRE 1]
+type = Explod
+trigger1 = numexplod(192) <= 0
+trigger1 = AnimElem = 3, = 8
+id = 192
+anim = 192
+pos = 44,-70
+sprpriority = -1 
+removetime = 53
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 183, FLAME FIRE 2]
+type = Explod
+trigger1 = AnimElem = 4
+id = 192
+anim = 192
+pos = 44,-90
+sprpriority = -1 
+removetime = 6
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 183, FLAME FIRE 3]
+type = Explod
+trigger1 = AnimElem = 5
+id = 192
+anim = 192
+pos = 35,-102
+sprpriority = -1 
+removetime = 17
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 183, FLAME FIRE 4]
+type = Explod
+trigger1 = AnimElem = 6
+id = 192
+anim = 192
+pos = 46,-85
+sprpriority = -1 
+removetime = 4
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 183, FLAME END]
+type = Explod
+trigger1 = AnimElem = 7
+id = 193
+anim = 193
+pos = 36,-42
+sprpriority = 2 
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 183, 2]
+type = AssertSpecial
+trigger1 = Time = [0,205]
+flag = RoundNotOver
+
+;*********************************************************
+;Pre-fight INTRO "IKUZE"
+[Statedef 190]
+type = S
+movetype = I
+physics = S
+velset = 0
+anim = 190
+
+[State 190, Intro Vs Iori]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = P2Name = "Iori Yagami"
+trigger2 = P2Name = "Iori"
+trigger3 = P4Name = "Iori Yagami"
+trigger4 = P4Name = "Iori"
+value = 292
+
+[State 190, Intro vs Benimaru]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = P2Name = "Benimaru Nikaido"
+trigger2 = P2Name = "Benimaru"
+trigger3 = P4Name = "Benimaru Nikaido"
+trigger4 = P4Name = "Benimaru"
+value = 194
+
+[State 190, Intro Vs K']
+type = ChangeState
+triggerall = Time = 0
+trigger1 = P2Name = "k'"
+trigger2 = P2Name = "K'"
+trigger3 = P4Name = "k'"
+trigger4 = P4Name = "K'"
+value = 8000
+
+[State 190, Intro vs Shingo]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = P2Name = "Shingo Yabuki"
+trigger2 = P2Name = "Shingo"
+trigger3 = P4Name = "Shingo Yabuki"
+trigger4 = P4Name = "Shingo"
+value = 184
+
+[State 190, Benimaru Intro Vs Girls]
+type = Helper
+triggerall = numhelper(4000) <= 0
+triggerall = time = 2
+trigger1 = p2name = "Blue Mary" || p4name = "Blue Mary"
+trigger2 = p2name = "Mai Shiranui" || p4name = "Mai Shiranui"
+trigger3 = p2name = "Leona" || p4name = "Leona"
+trigger4 = p2name = "Yuri Sakazaki" || p4name = "Yuri Sakazaki"
+trigger5 = p2name = "Shermie" || p4name = "Shermie"
+trigger6 = p2name = "Mature" || p4name = "Mature"
+trigger7 = p2name = "Vice" || p4name = "Vice"
+trigger8 = p2name = "Chizuru Kagura" || p4name = "Chizuru Kagura"
+trigger9 = p2name = "Li Xiangfei" || p4name = "Li Xiangfei"
+trigger10 = p2name = "Kasumi Todo" || p4name = "Kasumi Todo"
+trigger11 = p2name = "Sakura Kasugano" || p4name = "Sakura Kasugano"
+trigger12 = p2name = "Chunli" || p4name = "Chunli"
+trigger13 = p2name = "Rogue" || p4name = "Rogue"
+trigger14 = p2name = "mugena" || p4name = "mugena"
+trigger15 = p2name = "dking" || p4name = "dking"
+trigger16 = p2name = "whip" || p4name = "whip"
+ignorehitpause = 1
+helpertype = normal
+id      = 4000
+stateno = 7425
+name = "Shingo '98"
+postype = p1
+pos = -30,-105
+keyctrl = 0
+ownpal = 1
+
+[State 190, Intro Vs Ryu]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = P2Name = "Ryu"
+trigger2 = P4Name = "Ryu"
+trigger3 = Random <= 500
+value = 955
+
+[State 190, Intro]
+type = ChangeState
+triggerall = Time = 0
+triggerall = numhelper(4000) <= 0
+trigger1 = roundno = 1
+trigger1 = Random <= 500
+value = ifelse (random <= 500,188,955)
+
+[State 190, Intro with Shingo]
+type = ChangeState
+triggerall = Time = 0
+triggerall = numhelper(4000) <= 0
+trigger1 = roundno = 1
+trigger1 = Random <= 500
+value = 184
+
+[State 190, ANIM]
+type = Changeanim
+trigger1 = roundstate = 0
+value = 190
+
+[State 190, AS]
+type = AssertSpecial
+trigger1 = Time = [0,450]
+flag = Intro
+
+[State 190, FLAME START]
+type = Explod
+trigger1 = AnimElem = 3
+id = 191
+anim = 191
+pos = 39,-94
+sprpriority = -1
+removetime = 6
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 190, FLAME FLAMING 1]
+type = Explod
+trigger1 = AnimElem = 4
+id = 191
+anim = 192
+pos = 24,-109
+sprpriority = -1
+removetime = 6
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 190, FLAME X FLAMING 2]
+type = Explod
+trigger1 = random <= 500
+trigger1 = numexplod(192) <= 0
+trigger1 = AnimElem = 4, = 6
+id = 192
+anim = 187
+pos = 21,-118
+sprpriority = -1
+removetime = 31
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 190, FLAME FLAMING 2]
+type = Explod
+trigger1 = numexplod(192) <= 0
+trigger1 = AnimElem = 5
+id = 192
+anim = 192
+pos = 21,-118
+sprpriority = -1
+removetime = 30
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 190, FLAME END]
+type = Explod
+trigger1 = AnimElem = 6
+id = 193
+anim = 193
+pos = 12,-63
+sprpriority = 2
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 190, FLAME START]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 3,1
+volume = 0
+
+[State 190, FLAME END]
+type = PlaySnd
+trigger1 = AnimElem = 6
+value = 3,2
+volume = 150
+
+[State 190, IKUZE]
+type = PlaySnd
+trigger1 = AnimElem = 5, = 22
+value = 3,3
+volume = 50
+channel = 0
+
+;------------------------------------------------------------------------
+;STRIKER TOGGLE
+[State 190, STRIKER ON 1]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = 1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 190, STRIKER ON 2]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = -1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 190, STRIKER OFF 1]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 0
+trigger1 = facing = 1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 190, STRIKER OFF 2]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = stateno = [180,194]
+trigger1 = roundstate = 1
+trigger1 = var(31) = 0
+trigger1 = facing = -1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 190, REMOVE1]
+type = removeexplod
+trigger1 = var(31) = 1
+trigger2 = animtime = 0
+id = 4125
+
+[State 190, REMOVE2]
+type = removeexplod
+trigger1 = var(31) = 0
+trigger2 = animtime = 0
+id = 4120
+
+[State 190, VarSet0]
+type = VarSet
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 1
+trigger1 = command = "back"
+var(31) = 0
+ 
+[State 190, VarSet1]
+type = VarSet
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 0
+trigger1 = command = "fwd"
+var(31) = 1
+;---------------------------------------------
+
+[State 190, CS]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;------------------------------------------------
+; Pre-fight Intro Vs Benimaru
+[Statedef 194]
+type = S
+movetype = I
+physics = S
+velset = 0
+anim = 194
+
+[State 194, ANIM]
+type = Changeanim
+trigger1 = roundstate = 0
+value = 194
+
+[State 194, Beni1]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 3,5
+volume = 100
+channel = 0
+
+[State 194, Beni]
+type = PlaySnd
+triggerall = AnimElem = 8
+trigger1 = p2name = "Benimaru Nikaido"
+trigger2 = p4name = "Benimaru Nikaido"
+value = 3,6
+volume = 100
+channel = 0
+
+[State 194, 2]
+type = AssertSpecial
+trigger1 = Time = [0,400]
+flag = Intro
+
+;------------------------------------------------------------------------
+;STRIKER TOGGLE
+[State 194, STRIKER ON 1]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = 1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 194, STRIKER ON 2]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = -1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 194, STRIKER OFF 1]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 0
+trigger1 = facing = 1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 194, STRIKER OFF 2]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = stateno = [180,194]
+trigger1 = roundstate = 1
+trigger1 = var(31) = 0
+trigger1 = facing = -1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 194, REMOVE1]
+type = removeexplod
+trigger1 = var(31) = 1
+trigger2 = animtime = 0
+id = 4125
+
+[State 194, REMOVE2]
+type = removeexplod
+trigger1 = var(31) = 0
+trigger2 = animtime = 0
+id = 4120
+
+[State 194, VarSet0]
+type = VarSet
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 1
+trigger1 = command = "back"
+var(31) = 0
+ 
+[State 194, VarSet1]
+type = VarSet
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 0
+trigger1 = command = "fwd"
+var(31) = 1
+
+;---------------------------------------------
+
+[State 194, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;------------------------------------------------
+; Pre-fight Intro Vs Ryu
+[Statedef 955]
+type = S
+movetype = I
+physics = S
+velset = 0
+anim = 955
+
+[State 955, ANIM]
+type = Changeanim
+trigger1 = roundstate = 0
+value = 955
+
+[State 955, vs Ryu]
+type = PlaySnd
+trigger1 = time = 1
+value = 4,8
+volume = 30
+channel = 0
+
+[State 955, FLAME]
+type = Explod
+trigger1 = AnimElem = 1, = 122
+id = 956
+anim = 956
+pos = 0,0
+sprpriority = 2
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 955, FLAME START]
+type = PlaySnd
+trigger1 = AnimElem = 1, = 122
+value = 3,1
+volume = 0
+
+[State 955, FLAME END]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 3,2
+volume = 0
+
+[State 955, 2]
+type = AssertSpecial
+trigger1 = Time = [0,400]
+flag = Intro
+
+;------------------------------------------------------------------------
+;STRIKER TOGGLE
+[State 955, STRIKER ON 1]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = 1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 955, STRIKER ON 2]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = -1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 955, STRIKER OFF 1]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 0
+trigger1 = facing = 1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 955, STRIKER OFF 2]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = stateno = [180,194]
+trigger1 = roundstate = 1
+trigger1 = var(31) = 0
+trigger1 = facing = -1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 955, REMOVE1]
+type = removeexplod
+trigger1 = var(31) = 1
+trigger2 = animtime = 0
+id = 4125
+
+[State 955, REMOVE2]
+type = removeexplod
+trigger1 = var(31) = 0
+trigger2 = animtime = 0
+id = 4120
+
+[State 955, VarSet0]
+type = VarSet
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 1
+trigger1 = command = "back"
+var(31) = 0
+ 
+[State 955, VarSet1]
+type = VarSet
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 0
+trigger1 = command = "fwd"
+var(31) = 1
+
+;---------------------------------------------
+
+[State 955, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;************************************************
+; Pre-fight Intro vs Shingo
+[Statedef 184]
+type = S
+movetype = I
+physics = S
+velset = 0
+anim = 184
+
+[State 184, ANIM]
+type = Changeanim
+trigger1 = roundstate = 0
+value = 184
+
+[State 184, Shingo Intro 98]
+type = Helper
+trigger1 = roundstate = 0
+trigger1 = P2Name != "Shingo Yabuki"
+trigger1 = P2Name != "Shingo"
+trigger1 = P4Name != "Shingo Yabuki"
+trigger1 = P4Name != "Shingo"
+trigger1 = numhelper(4000) <= 0
+trigger1 = time = 5
+ignorehitpause = 1
+helpertype = normal
+id      = 4000
+stateno = 4150
+name = "Shingo '98"
+postype = p1
+pos = -30,-105
+keyctrl = 0
+ownpal = 1
+
+[State 184, 2]
+type = AssertSpecial
+trigger1 = Time = [0,3800]
+flag = Intro
+
+[State 184, Shingo]
+type = PlaySnd
+trigger1 = AnimElem = 4, = 1
+value = 3,7
+volume = 100
+channel = 0
+
+;------------------------------------------------------------------------
+;STRIKER TOGGLE
+[State 184, STRIKER ON 1]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = 1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 184, STRIKER ON 2]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = -1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 184, STRIKER OFF 1]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 0
+trigger1 = facing = 1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 184, STRIKER OFF 2]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = stateno = [180,194]
+trigger1 = roundstate = 1
+trigger1 = var(31) = 0
+trigger1 = facing = -1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 184, REMOVE1]
+type = removeexplod
+trigger1 = var(31) = 1
+trigger2 = animtime = 0
+id = 4125
+
+[State 184, REMOVE2]
+type = removeexplod
+trigger1 = var(31) = 0
+trigger2 = animtime = 0
+id = 4120
+
+[State 184, VarSet0]
+type = VarSet
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 1
+trigger1 = command = "back"
+var(31) = 0
+ 
+[State 184, VarSet1]
+type = VarSet
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 0
+trigger1 = command = "fwd"
+var(31) = 1
+;---------------------------------------------
+
+[State 184, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;************************************************
+; Pre-fight Intro vs Iori '98
+[Statedef 185]
+type = S
+movetype = I
+physics = S
+velset = 0
+anim = 185
+
+[State 185, ANIM]
+type = Changeanim
+trigger1 = roundstate = 0
+value = 185
+
+[State 185, FLAME START]
+type = Explod
+trigger1 = AnimElem = 4
+id = 191
+anim = 191
+pos = -24,-111
+sprpriority = -1
+removetime = 7
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 185, FLAME X FLAMING 1]
+type = Explod
+trigger1 = random <= 600
+trigger1 = numexplod(192) <= 0
+trigger1 = AnimElem = 4, = 6
+id = 192
+anim = 187
+pos = -24,-111
+sprpriority = -1
+removetime = 294
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 185, FLAME FLAMING 1]
+type = Explod
+trigger1 = numexplod(192) <= 0
+trigger1 = AnimElem = 4, = 7
+id = 192
+anim = 192
+pos = -24,-111
+sprpriority = -1
+removetime = 293
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 185, FLAME FLAMING 2]
+type = Explod
+trigger1 = AnimElem = 5
+id = 192
+anim = 192
+pos = -22,-116
+sprpriority = 2
+removetime = 5
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 185, FLAME FLAMING 3]
+type = Explod
+trigger1 = AnimElem = 6
+id = 192
+anim = 192
+pos = -2,-121
+sprpriority = 2
+removetime = 5
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 185, FLAME FLAMING 4]
+type = Explod
+trigger1 = AnimElem = 7
+id = 192
+anim = 192
+pos = 18,-92
+sprpriority = -1
+removetime = 4
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 185, FLAME FLAMING OUT]
+type = Explod
+trigger1 = AnimElem = 8
+id = 193
+anim = 193
+pos = 19,-64
+sprpriority = 2
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 185, FLAME FLAMING END]
+type = Explod
+trigger1 = AnimElem = 7
+id = 186
+anim = 186
+pos = 5,0
+sprpriority = 2
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+
+[State 185, Flamesnd1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 3,1
+volume = 0
+
+[State 185, Flamesnd2]
+type = PlaySnd
+trigger1 = AnimElem = 6
+value = 3,2
+volume = 150
+
+[State 185, iori1]
+type = PlaySnd
+trigger1 = AnimElem = 4, = 20
+value = 3,8
+volume = 100
+channel = 0
+
+[State 185, iori2]
+type = PlaySnd
+trigger1 = AnimElem = 4, = 80
+value = 3,9
+volume = 100
+channel = 0
+
+[State 185, 2]
+type = AssertSpecial
+trigger1 = Time = [0,2800]
+flag = Intro
+
+;------------------------------------------------------------------------
+;STRIKER TOGGLE
+[State 185, STRIKER ON 1]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = 1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 185, STRIKER ON 2]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = -1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 185, STRIKER OFF 1]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 0
+trigger1 = facing = 1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 185, STRIKER OFF 2]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = stateno = [180,194]
+trigger1 = roundstate = 1
+trigger1 = var(31) = 0
+trigger1 = facing = -1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 185, REMOVE1]
+type = removeexplod
+trigger1 = var(31) = 1
+trigger2 = animtime = 0
+id = 4125
+
+[State 185, REMOVE2]
+type = removeexplod
+trigger1 = var(31) = 0
+trigger2 = animtime = 0
+id = 4120
+
+[State 185, VarSet0]
+type = VarSet
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 1
+trigger1 = command = "back"
+var(31) = 0
+ 
+[State 185, VarSet1]
+type = VarSet
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 0
+trigger1 = command = "fwd"
+var(31) = 1
+;---------------------------------------------
+
+[State 185, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;======================================================
+;Intro Clones
+[Statedef 188]
+type = S
+physics = S
+velset = 0
+anim = 188
+
+[State 188, FLAME1]
+type = PlaySnd
+trigger1 = AnimElem = 1, =1
+value = 3,1
+volume = 30
+
+[State 188, FLAME2]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = 3,2
+volume = 100
+
+[State 188, FLAME START]
+type = Explod
+trigger1 = AnimElem = 1, = 1
+id = 191
+anim = 191
+pos = 44,-70
+sprpriority = -1
+removetime = 7
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 188, FLAME X FIRE 1]
+type = Explod
+trigger1 = random <= 500
+trigger1 = numexplod(192) <= 0
+trigger1 = AnimElem = 1, = 7
+id = 192
+anim = 187
+pos = 44,-70
+sprpriority = -1
+removetime = 54
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 188, FLAME FIRE 1]
+type = Explod
+trigger1 = numexplod(192) <= 0
+trigger1 = AnimElem = 1, = 8
+id = 192
+anim = 192
+pos = 44,-70
+sprpriority = -1 
+removetime = 53
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 188, FLAME FIRE 2]
+type = Explod
+trigger1 = AnimElem = 2
+id = 192
+anim = 192
+pos = 44,-90
+sprpriority = -1 
+removetime = 6
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 188, FLAME FIRE 3]
+type = Explod
+trigger1 = AnimElem = 3
+id = 192
+anim = 192
+pos = 35,-102
+sprpriority = -1 
+removetime = 17
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 188, FLAME FIRE 4]
+type = Explod
+trigger1 = AnimElem = 4
+id = 192
+anim = 192
+pos = 46,-85
+sprpriority = -1 
+removetime = 4
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 188, FLAME END]
+type = Explod
+trigger1 = AnimElem = 5
+id = 193
+anim = 193
+pos = 36,-42
+sprpriority = 2 
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 188, 2]
+type = AssertSpecial
+trigger1 = Time = [0,2000]
+flag = Intro
+
+;------------------------------------------------------------------------
+;STRIKER TOGGLE
+[State 188, STRIKER ON 1]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = 1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 188, STRIKER ON 2]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = -1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 188, STRIKER OFF 1]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 0
+trigger1 = facing = 1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 188, STRIKER OFF 2]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = stateno = [180,194]
+trigger1 = roundstate = 1
+trigger1 = var(31) = 0
+trigger1 = facing = -1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 188, REMOVE1]
+type = removeexplod
+trigger1 = var(31) = 1
+trigger2 = animtime = 0
+id = 4125
+
+[State 188, REMOVE2]
+type = removeexplod
+trigger1 = var(31) = 0
+trigger2 = animtime = 0
+id = 4120
+
+[State 188, VarSet0]
+type = VarSet
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 1
+trigger1 = command = "back"
+var(31) = 0
+ 
+[State 188, VarSet1]
+type = VarSet
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 0
+trigger1 = command = "fwd"
+var(31) = 1
+;---------------------------------------------
+[State 188, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+;------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+;************************************************
+; Pre-fight Intro vs K'
+[Statedef 8000]
+type = S
+movetype = I
+physics = S
+velset = 0
+anim = 8000
+
+[State 8000, FLAME1]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = 3,1
+volume = -10
+
+[State 8000, FLAME]
+type = Explod
+trigger1 = AnimElem = 5
+id = 8005
+anim = 8005
+pos = -9,-54
+sprpriority = 2
+supermovetime = 99999999
+pausemovetime = 99999999
+shadow = 68,68,68
+ownpal = 1
+
+[State 8000, ANIM]
+type = Changeanim
+trigger1 = roundstate = 0
+value = 8000
+
+[State 8000, 2]
+type = AssertSpecial
+trigger1 = Time = [0,2800]
+flag = Intro
+
+;------------------------------------------------------------------------
+;STRIKER TOGGLE
+[State 8000, STRIKER ON 1]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = 1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 8000, STRIKER ON 2]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = -1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 8000, STRIKER OFF 1]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 0
+trigger1 = facing = 1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 8000, STRIKER OFF 2]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = stateno = [180,194]
+trigger1 = roundstate = 1
+trigger1 = var(31) = 0
+trigger1 = facing = -1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 8000, REMOVE1]
+type = removeexplod
+trigger1 = var(31) = 1
+trigger2 = animtime = 0
+id = 4125
+
+[State 8000, REMOVE2]
+type = removeexplod
+trigger1 = var(31) = 0
+trigger2 = animtime = 0
+id = 4120
+
+[State 8000, VarSet0]
+type = VarSet
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 1
+trigger1 = command = "back"
+var(31) = 0
+ 
+[State 8000, VarSet1]
+type = VarSet
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 0
+trigger1 = command = "fwd"
+var(31) = 1
+;---------------------------------------------
+
+[State 8000, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+;=============================================================================================
+
+
+;Intro Vs. Iori KOF2K1
+[Statedef 292]
+type = S
+movetype = I
+physics = S
+velset = 0
+anim = 292
+sprpriority = -2
+
+[State 22, ANIM]
+type = Changeanim
+trigger1 = roundstate = 0
+value = 292
+
+[State 292, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 4,7
+volume = 30
+channel = 0
+
+[State 292, ANIM]
+type = Posadd
+trigger1 = Time = 0
+x = 50
+
+[State 292, AS]
+type = AssertSpecial
+trigger1 = time <= 390
+flag = Intro
+
+;------------------------------------------------------------------------
+;STRIKER TOGGLE
+[State 292, STRIKER ON 1]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = 1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 292, STRIKER ON 2]
+type = explod
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 1
+trigger1 = facing = -1
+id = 4120
+anim = 4120
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 292, STRIKER OFF 1]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 0
+trigger1 = facing = 1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = 1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 292, STRIKER OFF 2]
+type = explod
+trigger1 = numexplod(4125) <= 0
+trigger1 = stateno = [180,194]
+trigger1 = roundstate = 1
+trigger1 = var(31) = 0
+trigger1 = facing = -1
+id = 4125
+anim = 4125
+pos = 0,20
+facing = -1
+bindtime = -1
+sprpriority = 4
+ontop = 1
+ownpal = 1
+
+[State 292, REMOVE1]
+type = removeexplod
+trigger1 = var(31) = 1
+trigger2 = animtime = 0
+id = 4125
+
+[State 292, REMOVE2]
+type = removeexplod
+trigger1 = var(31) = 0
+trigger2 = animtime = 0
+id = 4120
+
+[State 292, VarSet0]
+type = VarSet
+trigger1 = numexplod(4125) <= 0
+trigger1 = var(31) = 1
+trigger1 = command = "back"
+var(31) = 0
+ 
+[State 292, VarSet1]
+type = VarSet
+trigger1 = numexplod(4120) <= 0
+trigger1 = var(31) = 0
+trigger1 = command = "fwd"
+var(31) = 1
+;---------------------------------------------
+
+[State 292, CS]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 293
+
+;Hop back (in the air)
+[Statedef 293]
+type = A
+physics = N
+anim = 106
+
+[State 293, Boom]
+type = PlaySnd
+trigger1 = AnimElem = 1, = 0
+trigger2 = Animelem = 1, = 8
+value = 10,3
+
+;BURN 0
+[State 293, Burn 0]
+type = Explod
+trigger1 = AnimElem = 1, = 0
+trigger2 = Animelem = 1, = 8
+ignorehitpause
+persistent = 0
+anim = 1400
+id = 1400
+pos = 0,-79
+postype = P1
+bindtime = 1
+supermovetime = 9999999999999
+pausemovetime = 999999999999
+random = 30,40
+sprpriority = 2
+ownpal = 1
+
+;BURN 1
+[State 293, Burn 1]
+type = Explod
+trigger1 = AnimElem = 1, = 0
+trigger2 = Animelem = 1, = 8
+ignorehitpause
+persistent = 1
+anim = 1401
+id = 1401
+pos = 0,-79
+postype = P1
+bindtime = 1
+supermovetime = 9999999999999
+pausemovetime = 999999999999
+random = 75,75
+sprpriority = 2
+ownpal = 1
+
+;BURN 0
+[State 293, Burn 0]
+type = Explod
+trigger1 = AnimElem = 1, >= 0
+trigger1 = numexplod(1402) <= 4
+ignorehitpause
+persistent = 0
+anim = 1402
+id = 1402
+pos = 0,-79
+postype = P1
+bindtime = 1
+supermovetime = 9999999999999
+pausemovetime = 999999999999
+random = 30,40
+sprpriority = 2
+ownpal = 1
+
+;BURN 1
+[State 293, Burn 1]
+type = Explod
+trigger1 = AnimElem = 1, > 0
+trigger1 = numexplod(1403) <= 5
+ignorehitpause
+persistent = 1
+anim = 1403
+id = 1403
+pos = 0,-79
+postype = P1
+bindtime = 1
+supermovetime = 9999999999999
+pausemovetime = 999999999999
+random = 75,75
+sprpriority = 2
+ownpal = 1
+
+[State 293, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 1, = 0
+time = 22
+ampl = -5
+freq = 180
+
+[State 293, 1]
+type = VelSet
+trigger1 = Time = 0
+x = - 4.14
+y = -6.1
+
+[State 293, 2]
+type = PlaySnd
+trigger1 = Time = 0
+value = 1,2
+
+[State 293, 3]
+type = velmul
+trigger1 = time >= 4
+x = .933
+
+[State 293, 3]
+type = VelAdd
+trigger1 = Time <= 10
+y = .5846
+
+[State 293, 3]
+type = VelAdd
+trigger1 = Time > 10
+y = 1.4846
+
+[State 293, 4]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= -5
+value = 294
+;---------------------------------
+; Dashing back (landing)
+[Statedef 294]
+type = S
+physics = S
+anim = 294
+velset = 0,0
+ctrl = 0
+
+[State 294, Boom]
+type = PlaySnd
+trigger1 = AnimElem = 1, = 0
+value = 8,2
+volume = 20
+
+;BURN 0
+[State 294, Burn 0]
+type = Explod
+trigger1 = AnimElem = 1, = 0
+ignorehitpause
+persistent = 0
+anim = 1400
+id = 1400
+pos = 0,-79
+postype = P1
+bindtime = 1
+supermovetime = 9999999999999
+pausemovetime = 999999999999
+random = 30,40
+sprpriority = 2
+ownpal = 1
+
+;BURN 1
+[State 294, Burn 1]
+type = Explod
+trigger1 = AnimElem = 1, = 0
+ignorehitpause
+persistent = 1
+anim = 1401
+id = 1401
+pos = 0,-79
+postype = P1
+bindtime = 1
+supermovetime = 9999999999999
+pausemovetime = 999999999999
+random = 75,75
+sprpriority = 2
+ownpal = 1
+
+;BURN 0
+[State 294, Burn 0]
+type = Explod
+trigger1 = AnimElem = 1, < 5
+trigger1 = numexplod(1402) <= 4
+ignorehitpause
+persistent = 0
+anim = 1402
+id = 1402
+pos = 0,-79
+postype = P1
+bindtime = 1
+supermovetime = 9999999999999
+pausemovetime = 999999999999
+random = 30,40
+sprpriority = 2
+ownpal = 1
+
+;BURN 1
+[State 294, Burn 1]
+type = Explod
+trigger1 = AnimElem = 1, < 5
+trigger1 = numexplod(1403) <= 5
+ignorehitpause
+persistent = 1
+anim = 1403
+id = 1403
+pos = 0,-79
+postype = P1
+bindtime = 1
+supermovetime = 9999999999999
+pausemovetime = 999999999999
+random = 75,75
+sprpriority = 2
+ownpal = 1
+
+[State 294, 1]
+type = posadd
+trigger1 = teamside = 2
+trigger1 = Time = 0
+x = -1
+
+[State 294, 1]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 294, 2]
+type = PlaySnd
+trigger1 = Time = 0
+value = 1,5
+
+[State 294, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;--------------------------------
+
+;*********************************************************
+;Turns mode Intro
+; Fall down
+[Statedef 189]
+type = A
+movetype = I
+physics = N
+anim = 189
+velset = 4.8,-1
+ctrl = 0
+
+[State 189, SB]
+type = screenbound
+trigger1 = 1
+value = 0
+
+[State 189, 1]
+type = posadd
+trigger1 = time = 0
+y = -70
+x = -100
+
+[State 189, 2]
+type = veladd
+trigger1 = 1
+y = .4
+
+[State 189, AS]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 189, 3]
+type = ChangeState
+trigger1 = pos y >= 0 && vel y > 0
+value = 197
+
+;Land
+[Statedef 197]
+type = S
+movetype = I
+physics = N
+anim = 197
+velset = 0,0
+ctrl = 0
+
+[State 197, 1]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 197, 2]
+type = PlaySnd
+trigger1 = Time = 0
+value = 1,5
+
+[State 197, AS]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 197, 3]
+type = ChangeState
+trigger1 = time >= 8
+value = 190
+;=============================================
+
+
+; Taunt 1 (STRIKER ADD)
+[Statedef 195]
+type = S
+movetype = I
+physics = S
+anim = 195
+velset = 0,0
+ctrl = 0
+
+[State 195, SND1]
+type = PlaySnd
+trigger1 = var(41) != 8
+trigger1 = AnimElem = 1
+value = 3,4
+volume = 50
+channel = 19
+
+[State 195, SND2]
+type = PlaySnd
+trigger1 = var(41) = 8
+trigger1 = AnimElem = 1
+value = 30,6
+volume = 50
+channel = 19
+
+;Kof 95-96 Style, Hehehe Lose those Powers!!!
+[State 195, 3]
+type = TargetPowerAdd
+trigger1 = AnimElem = 1, >= 0
+value = -11
+
+[State 195, Striker Bombs]
+type = varadd
+triggerall = roundstate = 2
+triggerall = time = 0
+trigger1 = var(31) = 1
+trigger1 = power >= 1000
+trigger2 = var(21) = 1
+trigger2 = var(10) > 0
+var(34) = 1
+
+[State 195, 4]
+type = varset
+trigger1 = time = 0
+trigger1 = var(21) = 1
+trigger1 = var(10) > 0
+var(10) = 1
+
+[State 195, Poweradd]
+type = poweradd
+triggerall = roundstate = 2
+trigger1 = var(31) = 1
+trigger1 = time = 0
+trigger1 = power >= 1000
+value = -1000
+
+;---------------------------------------------------------------------
+;BOMB EXPLOD
+[State 195, SHINGOBOMB1A]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 1 && var(34) >= 1
+trigger1 = numexplod(3917) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3917
+pos = 35,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 195, SHINGOBOMB1B]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 2 && var(34) >= 1
+trigger1 = numexplod(3917) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3917
+pos = -36,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 195, SHINGOBOMB2A]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 1 && var(34) >= 2
+trigger1 = numexplod(3916) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3916
+pos = 50,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 195, SHINGOBOMB2B]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 2 && var(34) >= 2
+trigger1 = numexplod(3916) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3916
+pos = -51,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 195, SHINGOBOMB3A]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 1 && var(34) >= 3
+trigger1 = numexplod(3915) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3915
+pos = 65,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 195, SHINGOBOMB3B]
+type = Explod
+triggerall = time = 0 &&  var(31) = 1 && teamside = 2 && var(34) >= 3
+trigger1 = numexplod(3915) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3915
+pos = -66,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 195, SHINGOBOMB4A]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 1 && var(34) >= 4
+trigger1 = numexplod(3914) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3914
+pos = 80,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 195, SHINGOBOMB4B]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 2 && var(34) >= 4
+trigger1 = numexplod(3914) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3914
+pos = -81,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 195, SHINGOBOMB5A]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 1 && var(34) >= 5
+trigger1 = numexplod(3913) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3913
+pos = 95,235
+postype = left
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+
+[State 195, SHINGOBOMB5B]
+type = Explod
+triggerall = time = 0 && var(31) = 1 && teamside = 2 && var(34) >= 5
+trigger1 = numexplod(3913) <= 0
+ignorehitpause = 1 
+persistent = 0
+anim = 3915
+id   = 3913
+pos = -96,235
+postype = right
+supermove = 1
+bindtime = -1
+sprpriority = 4
+pausemovetime = 9999999999
+supermovetime = 9999999999
+facing = 1
+ontop = 1
+ownpal = 1
+;--------------------------------------------------------------------
+
+[State 195, width]
+type = width
+trigger1 = 1
+value = -10,0
+
+[State 195, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;<><><><><><>><><><><<><><><>><><><><><><><><><><><><><><><><<><><><><><><><><><><><><><<>
+
+
+; Taunt 1 (CANCELABLE)
+[Statedef 855]
+type = S
+movetype = I
+physics = S
+anim = 195
+velset = 0,0
+ctrl = 0
+
+;CTRLSET
+[State 855, 3]
+type = Ctrlset
+trigger1 = time >= 40
+value = 1
+
+;Kof 95-96 Style, Hehehe Lose those Powers!!!
+[State 855, 3]
+type = TargetPowerAdd
+trigger1 = AnimElem = 1, >= 0
+value = -11
+
+[State 855, SND1]
+type = PlaySnd
+trigger1 = var(41) != 8
+trigger1 = AnimElem = 1
+value = 3,4
+volume = 50
+channel = 19
+
+[State 855, SND2]
+type = PlaySnd
+trigger1 = var(41) = 8
+trigger1 = AnimElem = 1
+value = 30,6
+volume = 50
+channel = 19
+
+[State 855, width]
+type = width
+trigger1 = 1
+value = -10,0
+
+[State 855, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;<><><><><><>><><><><<><><><>><><><><><><><><><><><><><><><><<><><><><><><><><><><><><><<>
+;Summon Striker 
+[Statedef 3900]
+type = S
+physics = S
+velset = 0,0
+anim = 3900
+ctrl = 0
+
+[State 3900, HUHU]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 4,3
+volume = 50
+
+[State 3900, Shingo]
+type = Helper
+trigger1 = var(43) = 0
+trigger1 = numhelper(4000) <= 0
+trigger1 = animelem = 1
+helpertype = normal
+stateno = 4000
+id      = 4000
+name = "A_Iori"
+postype = back
+pos = -20,-105
+keyctrl = 0
+ownpal = 1
+
+[State 3900, Daimon]
+type = Helper
+trigger1 = var(43) = 1
+trigger1 = numhelper(4000) <= 0
+trigger1 = animelem = 1
+helpertype = normal
+stateno = 7000
+id      = 4000
+name = "Kyoko"
+postype = back
+pos = -20,-105
+keyctrl = 0
+ownpal = 1
+
+[State 3900, Benimaru]
+type = Helper
+trigger1 = var(43) = 2
+trigger1 = numhelper(4000) <= 0
+trigger1 = animelem = 1
+helpertype = normal
+stateno = 7300
+id      = 4000
+name = "Syo"
+postype = back
+pos = -20,-105
+keyctrl = 0
+ownpal = 1
+
+[State 3900, NOTHITBY]
+type = hitby
+trigger1 = animelem = 6, < 0
+value = , AT 
+
+[State 3900, END]
+type = Changestate
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------
+
+;Striker Selection
+[Statedef 7110]
+type = S
+movetype = I
+physics = S
+anim = 9999
+velset = 0,0
+ctrl = 0
+
+[State 7110, Striker Bombs]
+type = parentvaradd
+triggerall = time = 0
+trigger1 = parent, var(43) <= 2
+persistent = 0
+var(43) = 1
+
+[State 7110, Striker Bombs]
+type = parentvarset
+triggerall = time = 0
+trigger1 = parent, var(43) > 2
+persistent = 0
+var(43) = 0
+
+[State 7110, Destroyself]
+type = destroyself
+trigger1 = Time = 10
+;===============================================
+
+;---------------------------------------------------------------------------
+;
+; AI activation code by Winane.
+; (Credit to ANMC, Bagaliao, and FlowaGirl for the basic helper method concept.)
+;
+;------------------
+; AI Activation Helper State - Primary Version
+; (Credit to YongMing for the basic HitPause bugfix concept.)
+;
+; var(1) - First tick button activation prevention.
+; var(2) - Used for pause/superpause and custom state check, basically.
+; var(3) - (Super/)Pause & custom state-triggered dir detection disabler.
+; var(4) - Persistent direction command detection enabler (due to 2002.04.14).
+; var(9) - AutoTurn bug fixer.
+; parent's var(58) - Parent's GameTime var, for pause and custom state check.
+; parent's var(59) - Parent's primary AI variable.
+
+[StateDef 9741]
+type = S
+movetype = I
+physics = N
+anim = 9741
+ctrl = 0
+
+[State 9741, Safety]; Just in case your opponent is very poorly coded.
+type = SelfState
+trigger1 = !IsHelper
+value = 0
+
+[State 9741, PauseCheck]
+type = VarSet
+trigger1 = (GameTime>(Parent,var(58)))
+trigger2 = !(Parent,Alive)
+trigger3 = (RoundState != 2)
+trigger4 = Parent,var(59)
+trigger5 = (var(3):=0)
+var(2) = (var(3):=1)+(var(4):=0)
+
+[State 9741, Facing]
+type = Turn
+trigger1 = (var(9):=(Facing != Parent,Facing))
+
+[State 9741, DirTurnOnAI]
+type = ParentVarSet
+triggerall = !var(3)
+triggerall = !var(9)
+trigger1 = (Parent,command = "holdfwd")
+trigger2 = (Parent,command = "holdback")
+trigger3 = (Parent,command = "holdup")
+trigger4 = (Parent,command = "holddown")
+trigger5 = !(var(4):=1)
+var(59) = var(4)
+
+[State 9741, DirTurnOffAI]
+type = ParentVarSet
+triggerall = !var(3)
+triggerall = Parent,var(59)
+trigger1 = (command = "holdfwd")
+trigger1 = (Parent,command = "holdfwd")
+trigger2 = (command = "holdback")
+trigger2 = (Parent,command = "holdback")
+trigger3 = (command = "holdup")
+trigger3 = (Parent,command = "holdup")
+trigger4 = (command = "holddown")
+trigger4 = (Parent,command = "holddown")
+var(59) = (var(4):=0)
+
+[State 9741, ButtonTurnOnAI]
+type = ParentVarSet
+triggerall = var(1)
+triggerall = !var(2)
+trigger1 = (Parent,command = "a")
+trigger2 = (Parent,command = "b")
+trigger3 = (Parent,command = "c")
+trigger4 = (Parent,command = "x")
+trigger5 = (Parent,command = "y")
+trigger6 = (Parent,command = "z")
+trigger7 = (Parent,command = "s")
+var(59) = 1
+
+[State 9741, ButtonTurnOffAI]
+type = ParentVarSet
+triggerall = !var(2)
+trigger1 = (command = "a")
+trigger1 = (Parent,command = "a")
+trigger2 = (command = "b")
+trigger2 = (Parent,command = "b")
+trigger3 = (command = "c")
+trigger3 = (Parent,command = "c")
+trigger4 = (command = "x")
+trigger4 = (Parent,command = "x")
+trigger5 = (command = "y")
+trigger5 = (Parent,command = "y")
+trigger6 = (command = "z")
+trigger6 = (Parent,command = "z")
+trigger7 = (command = "s")
+trigger7 = (Parent,command = "s")
+var(59) = -1
+
+[State 9741, UnPauseCheck]
+type = VarSet
+triggerall = var(2)
+trigger1 = (Parent,command = "a")
+trigger2 = (Parent,command = "b")
+trigger3 = (Parent,command = "c")
+trigger4 = (Parent,command = "x")
+trigger5 = (Parent,command = "y")
+trigger6 = (Parent,command = "z")
+trigger7 = (Parent,command = "s")
+trigger8 = (var(2) = 2)
+trigger8 = (var(2):=0)
+var(2) = 2
+
+[State 9741, Goodbye]
+type = DestroySelf
+triggerall = (var(1):=1)
+trigger1 = Parent,var(59)
+trigger2 = !(Parent,Alive)
+trigger3 = (RoundState != 2)
+
+
+;------------------
+; AI Activation Helper State - Compatibly Partnered Version
+;
+; var(1) - First tick dir activation prevention
+; var(2) - Used for pause/superpause and custom state check, basically.
+; var(3) - (Super/)Pause & custom state-triggered dir detection disabler.
+; var(4) - Hitpause check.
+; var(5) - No button on previous tick.
+; var(6) - Any dir on this tick.
+; var(7) - Any button on this tick.
+; var(8) - Matching partner button detected.
+; var(9) - AutoTurn bug fixer.
+; parent's var(58) - Parent's GameTime var, for pause and custom state check.
+; parent's var(59) - Parent's primary AI variable.
+
+[StateDef 9742]
+type = S
+movetype = I
+physics = N
+anim = 9741
+ctrl = 0
+
+[State 9742, Safety]; Just in case your opponent is very poorly coded.
+type = SelfState
+trigger1 = !IsHelper
+value = 0
+
+[State 9742, PauseCheck]
+type = VarSet
+trigger1 = (GameTime>Parent,var(58))
+trigger2 = !(Parent,Alive)
+trigger3 = (RoundState != 2)
+trigger4 = Parent,var(59)
+trigger5 = (var(3):=0)
+var(2) = (var(3):=1)
+
+[State 9742, Facing]
+type = Turn
+trigger1 = (var(9):=(Facing != Parent,Facing))
+
+[State 9742, ParentDirCheck]
+type = VarSet
+trigger1 = (Parent,command = "holdfwd")
+trigger2 = (Parent,command = "holdback")
+trigger3 = (Parent,command = "holdup")
+trigger4 = (Parent,command = "holddown")
+trigger5 = (var(6):=0)
+var(6) = 1
+
+[State 9742, ParentButtonCheck]
+type = VarSet
+trigger1 = (Parent,command = "a")
+trigger2 = (Parent,command = "b")
+trigger3 = (Parent,command = "c")
+trigger4 = (Parent,command = "x")
+trigger5 = (Parent,command = "y")
+trigger6 = (Parent,command = "z")
+trigger7 = (Parent,command = "s")
+trigger8 = (var(7):=0)
+var(7) = 1
+
+[State 9742, SameButtonCheck]
+type = VarSet
+triggerall = var(7)
+triggerall = !var(2)
+triggerall = NumPartner
+trigger1 = (Parent,command = "a")
+trigger1 = (Partner,command = "a")
+trigger2 = (Parent,command = "b")
+trigger2 = (Partner,command = "b")
+trigger3 = (Parent,command = "c")
+trigger3 = (Partner,command = "c")
+trigger4 = (Parent,command = "x")
+trigger4 = (Partner,command = "x")
+trigger5 = (Parent,command = "y")
+trigger5 = (Partner,command = "y")
+trigger6 = (Parent,command = "z")
+trigger6 = (Partner,command = "z")
+trigger7 = (Parent,command = "s")
+trigger7 = (Partner,command = "s")
+trigger8 = (var(8):=0)
+var(8) = 1
+
+[State 9742, DirTurnOnAI]
+type = ParentVarSet
+trigger1 = var(1)
+trigger1 = var(6)
+trigger1 = !var(3)
+trigger1 = !var(4)
+trigger1 = !var(9)
+var(59) = 1
+
+[State 9742, DirTurnOffAI]
+type = ParentVarSet
+triggerall = var(6)
+triggerall = !var(3)
+triggerall = Parent,var(59)
+trigger1 = (command = "holdfwd")
+trigger1 = (Parent,command = "holdfwd")
+trigger2 = (command = "holdback")
+trigger2 = (Parent,command = "holdback")
+trigger3 = (command = "holdup")
+trigger3 = (Parent,command = "holdup")
+trigger4 = (command = "holddown")
+trigger4 = (Parent,command = "holddown")
+var(59) = 0
+
+[State 9742, ButtonTurnOnAI]
+type = ParentVarSet
+trigger1 = var(5)
+trigger1 = var(7)
+trigger1 = !var(2)
+trigger1 = !var(8)
+var(59) = 1
+
+[State 9742, ButtonTurnOffAI]
+type = ParentVarSet
+triggerall = var(7)
+triggerall = !var(2)
+triggerall = !var(8)
+trigger1 = (command = "a")
+trigger1 = (Parent,command = "a")
+trigger2 = (command = "b")
+trigger2 = (Parent,command = "b")
+trigger3 = (command = "c")
+trigger3 = (Parent,command = "c")
+trigger4 = (command = "x")
+trigger4 = (Parent,command = "x")
+trigger5 = (command = "y")
+trigger5 = (Parent,command = "y")
+trigger6 = (command = "z")
+trigger6 = (Parent,command = "z")
+trigger7 = (command = "s")
+trigger7 = (Parent,command = "s")
+var(59) = -1
+
+[State 9742, UnPauseCheck]
+type = VarSet
+triggerall = var(2)
+triggerall = !var(4)
+trigger1 = var(7)
+trigger2 = (var(2) = 2)
+trigger2 = (var(2):=0)
+var(2) = 2
+
+[State 9742, Goodbye]
+type = DestroySelf
+trigger1 = Parent,var(59)
+trigger2 = !(Parent,Alive)
+trigger3 = (RoundState != 2)
+
+[State 9742, HitPauseCheck]
+type = VarSet
+trigger1 = var(6)
+trigger2 = var(7)
+trigger3 = !(Parent,HitPauseTime)
+var(4) = Parent,HitPauseTime
+
+[State 9742, Delay]
+type = VarSet
+trigger1 = (var(1):=1)
+var(5) = !var(7)
