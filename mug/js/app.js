@@ -1,3 +1,5 @@
+
+
 var requestAnimFrame = ( function() {
     return window.requestAnimationFrame    ||
         window.webkitRequestAnimationFrame ||
@@ -9,27 +11,39 @@ var requestAnimFrame = ( function() {
         };
 } )();
 
+
+
 // Create the canvas
-var canvas = document.createElement( 'canvas' );
+var canvas = document.getElementById('canvas'); //document.createElement( 'canvas' );
 var ctx = canvas.getContext( '2d' );
-var canvasWidth = 320;
-var canvasHeight = 240; //180 widescreen
 var zoom;
 
-var sh = window.innerHeight / 3;
-var sw = sh * 4;
+var canvasWidth = 320;
+var canvasHeight = 240; //180 widescreen
 
-if ( sw > window.innerWidth ) {
-    zoom = window.innerWidth / canvasWidth;
+window.onload = window.onresize = function() {
+
+var element = document.getElementById('content');
+elementWidth = element.offsetWidth;
+elementHeight = element.offsetHeight;
+var sw = elementWidth / 4;
+var sh = sw * 3;
+
+if ( sw > elementWidth ) {
+    zoom = elementWidth / canvasWidth;
 } else {
-    zoom = window.innerHeight / canvasHeight;
+    zoom = elementHeight / canvasHeight;
+}
+
+if ( sh > elementHeight ) {
+    zoom = elementHeight / canvasHeight;
 }
 
 canvas.width = canvasWidth * zoom;
 canvas.height = canvasHeight * zoom;
 
-document.body.appendChild( canvas );
-
+document.getElementById("content").appendChild( canvas ); //document.body.appendChild( canvas );
+}
 
 // The main game loop
 var lastTime;
@@ -52,8 +66,8 @@ var player1;
 var player2;
 
 var resources = [];
-resources.push(new resource('chars', 'kusanagi'));
-resources.push(new resource('chars', 'yagamiAKOF')); // Another character
+resources.push(new resource('chars', 'yagamiAKOF')); //kusanagi Another character
+resources.push(new resource('chars', 'yagamiAKOF')); //
 Promise.all(resources.map(function(resource) {
     return resource.load();
 })).then(function() {
@@ -88,7 +102,7 @@ function stage() {
     var n = 0;
     if (canvasHeight == 180) { n = 1; }
 
-    img.src = 'stage/img' + n + '.png';
+    img.src = 'stages/img' + n + '.png';
     ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
 
 }
@@ -126,10 +140,20 @@ function renderPlayer( player ) {
     var image = decodePCX( player.SFF.images[ i ].image, player.palette );
     var width = player.right === 1 ? 0 : image.width;
 
+    var rect = {
+        x: ( player.right * ( player.pos.x - player.SFF.images[ i ].x ) ) + ( player.right * width ),
+        y: player.pos.y - player.SFF.images[ i ].y,
+        width: image.width,
+    	height: image.height
+    };
+    ctx.fillStyle = 'white';
+    ctx.fillRect(rect.x, rect.y, rect.width, rect.height );
+    
     // Fill image
     ctx.drawImage( image, ( player.right * ( player.pos.x - player.SFF.images[ i ].x ) ) + ( player.right * width ), player.pos.y - player.SFF.images[ i ].y );
-
-    /*
+    
+    
+    
     // Fill collision box // TODO Wrong in scale
     if ( player.AIR[ player.action ].clsn2Default ) {
     	var clsn = player.AIR[ action ].clsn2Default;
@@ -143,17 +167,16 @@ function renderPlayer( player ) {
     		var y = player.pos.y + clsn[ i ].y ;
     		var width = clsn[ i ].x2 - clsn[ i ].x;
     		var height = clsn[ i ].y2 - clsn[ i ].y;
-    		ctx.fillStyle = 'rgba(0,0,255,0.2)';
-    		ctx.fillRect( player.right * x, y, player.right * width, height );
+    		ctx.strokeStyle  = 'rgba(0,255,0,1)';
+    		ctx.strokeRect( player.right * x, y, player.right * width, height );
     	}
     }
-    */
 
     // Fill pos
-    /*
     ctx.fillStyle = '#ff0000';
     ctx.fillRect( player.right * player.pos.x, player.pos.y, 1, 1 );
-    */
+    
+
 
     player.currentTime++;
     if (player.currentTime >= player.AIR[player.action].elements[player.currentFrame].time) {
