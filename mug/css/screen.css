@@ -16,7 +16,7 @@ html, body {
     height: 10vh;
 }
 #joystick {
-    background-color: gray;
+    background-color: #aaa;
     width: 100%;
     height: 50vh;
 }
