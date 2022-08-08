@@ -56,7 +56,7 @@ html, body {
     
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url("/img/mugen.webp");
+    background-image: url("https://samuelavelino.github.io/mug/img/mugen.webp");
     background-size: 30vh;
 }
 .item3 {
