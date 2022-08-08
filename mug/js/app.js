@@ -86,7 +86,7 @@ resizeCanvas();
 window.addEventListener('resize', function(){
     
     window.location.reload(true);
-    resizeCanvas();
+    //resizeCanvas();
     
 });
 //---------------------------------------------------------------------------------
