@@ -14,7 +14,7 @@ html, body {
 }
 @font-face {
     font-family: "Enter Sansman";
-    src: url("/css/entsans.ttf");
+    src: url("css/entsans.ttf");
 }
 #topbar {
     background-color: #202020;
