@@ -14,7 +14,7 @@ html, body {
 }
 @font-face {
     font-family: "Enter Sansman";
-    src: url("https://samuelavelino.github.io/mug/css/entsans.ttf");
+    src: url("/css/entsans.ttf");
 }
 #topbar {
     background-color: #202020;
@@ -48,16 +48,16 @@ html, body {
 .item2 {
     width: 100%;
     height: 10vh;
-    margin-top: 0.6vh;
     /* Create the gradient. */
+    /*margin-top: 0.6vh;
     background-image: linear-gradient(to bottom right, #7F00FF, #30D9DD); //(45deg, #f3ec78, #af4261);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;*/
     
-    /*background-position: center center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-image: url("/img/mugen.webp");
-    background-size: 30vh;*/
+    background-size: 30vh;
 }
 .item3 {
     width: 15vh;
