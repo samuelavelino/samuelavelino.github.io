@@ -28,12 +28,12 @@ var requestAnimFrame = ( function() {
         };
 } )();
 
-// Create the canvas
-var canvas = document.getElementById('canvas'); //document.createElement( 'canvas' );
+// Get Canvas
+var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext( '2d' );
 var zoom = 1;
 
-// The main game loop
+
 var lastTime;
 var fps;
 
@@ -54,21 +54,20 @@ var gameTime = 0;
 var isGameOver;
 
 // Stage image
-var img = new Image();
+let img = new Image();
 
 
 //=================================================================================
 // Functions
+function resizeCanvas() {
 
-window.onload = window.onresize = function() {
-
-    var content = document.getElementById('content');
-    contentWidth = content.offsetWidth;
-    contentHeight = content.offsetHeight;
+    let content = document.getElementById('content');
+    let contentWidth = content.offsetWidth;
+    let contentHeight = content.offsetHeight;
     
     // cria a proporcao baseado na largura do elemento
-    var sw = contentWidth / mugen.aspectRatio.x;
-    var sh = sw * mugen.aspectRatio.y;
+    let sw = contentWidth / mugen.aspectRatio.x;
+    let sh = sw * mugen.aspectRatio.y;
     
     zoom = contentWidth / mugen.resolution.width;
     
@@ -79,11 +78,29 @@ window.onload = window.onresize = function() {
     
     canvas.width = mugen.resolution.width * zoom;
     canvas.height = mugen.resolution.height * zoom;
-
-    document.getElementById("content").appendChild( canvas ); //document.body.appendChild( canvas );
     
 }
+
+resizeCanvas();
 //---------------------------------------------------------------------------------
+window.addEventListener('resize', function(){
+    
+    window.location.reload(true);
+    resizeCanvas();
+    
+});
+//---------------------------------------------------------------------------------
+/*window.onerror = function(msg, url, line, col, error) {
+    
+    var extra = !col ? '' : '\ncolumn: ' + col;
+    extra += !error ? '' : '\nerror: ' + error;
+    alert("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
+    return true;
+    
+};*/
+//---------------------------------------------------------------------------------
+
+// The main game loop
 function main() {
 
     var now = Date.now();
@@ -115,7 +132,7 @@ function update( dt ) {
 //---------------------------------------------------------------------------------
 function stage() {
 
-    var n = 0;
+    let n = 0;
     if (mugen.resolution.height == 180) { n = 1; }
     img.src = 'stages/img' + n + '.png';
 
@@ -125,22 +142,21 @@ function stage() {
 //---------------------------------------------------------------------------------
 function debug() {
 
-    var container = document.getElementById('container');
-    containerWidth = container.offsetWidth;
-    containerHeight = container.offsetHeight;
+    let container = document.getElementById('container');
+    let containerWidth = container.offsetWidth;
+    let containerHeight = container.offsetHeight;
     
-    var content = document.getElementById('content');
-    contentWidth = content.offsetWidth;
-    contentHeight = content.offsetHeight;
+    let content = document.getElementById('content');
+    let contentWidth = content.offsetWidth;
+    let contentHeight = content.offsetHeight;
     
-    var canvas = document.getElementById('canvas');
-    canvasWidth = canvas.offsetWidth;
-    canvasHeight = canvas.offsetHeight;
+    let canvas = document.getElementById('canvas');
+    let canvasWidth = canvas.offsetWidth;
+    let canvasHeight = canvas.offsetHeight;
     
-    var system = '[SYSTEM] FPS:' + fps + ' - memoria: ' + player1.action + ' - processamento: ' + player2.action;
-    //var players = '[PLAYERS] player1.action: ' + player1.action + ' - player2.action: ' + player2.action;
-    var players = '[PLAYERS] P1 action: ' + player1.action + ' - P2 action: ' + player2.action;
-    var size = '[SIZE] page: ' + containerWidth + ',' + containerHeight + ' - div: ' + contentWidth + ',' + contentHeight + ' - canvas: ' + canvasWidth + ',' + canvasHeight;
+    let system = '[SYSTEM] FPS:' + fps + ' - memoria: ' + player1.action + ' - processamento: ' + player2.action;
+    let players = '[PLAYERS] P1 action: ' + player1.action + ' - P2 action: ' + player2.action;
+    let size = '[SIZE] page: ' + containerWidth + ',' + containerHeight + ' - div: ' + contentWidth + ',' + contentHeight + ' - canvas: ' + canvasWidth + ',' + canvasHeight;
     
     ctx.fillStyle = '#fff';
     ctx.font = '8px  Lucida Console';
