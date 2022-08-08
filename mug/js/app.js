@@ -1,5 +1,22 @@
+//=================================================================================
+// Constants
 
+const mugen = {
+    aspectRatio: { x:4, y:3 },//{ x:16, y:9 },
+    width: 320,
+    resolution: {
+        get width() {
+            return ( mugen.width / mugen.aspectRatio.x ) * mugen.aspectRatio.x;
+        },
+        get height() {
+            return ( mugen.width / mugen.aspectRatio.x ) * mugen.aspectRatio.y;
+        }
+    }
+};
+//alert(mugen.resolution.width);
 
+//=================================================================================
+// Variables
 var requestAnimFrame = ( function() {
     return window.requestAnimationFrame    ||
         window.webkitRequestAnimationFrame ||
@@ -11,56 +28,14 @@ var requestAnimFrame = ( function() {
         };
 } )();
 
-
-
 // Create the canvas
 var canvas = document.getElementById('canvas'); //document.createElement( 'canvas' );
 var ctx = canvas.getContext( '2d' );
-var zoom;
-
-var canvasWidth = 320;
-var canvasHeight = 240; //180 widescreen
-
-window.onload = window.onresize = function() {
-
-var element = document.getElementById('content');
-elementWidth = element.offsetWidth;
-elementHeight = element.offsetHeight;
-var sw = elementWidth / 4;
-var sh = sw * 3;
-
-if ( sw > elementWidth ) {
-    zoom = elementWidth / canvasWidth;
-} else {
-    zoom = elementHeight / canvasHeight;
-}
-
-if ( sh > elementHeight ) {
-    zoom = elementHeight / canvasHeight;
-}
-
-canvas.width = canvasWidth * zoom;
-canvas.height = canvasHeight * zoom;
-
-document.getElementById("content").appendChild( canvas ); //document.body.appendChild( canvas );
-}
+var zoom = 1;
 
 // The main game loop
 var lastTime;
 var fps;
-
-function main() {
-
-    var now = Date.now();
-    var dt = (now - lastTime) / 1000.0;
-    fps = Math.ceil(1000 / (now - lastTime));
-    update();
-    render();
-
-    lastTime = now;
-    requestAnimFrame(main);
-
-};
 
 var player1;
 var player2;
@@ -74,6 +49,54 @@ Promise.all(resources.map(function(resource) {
     init();
 });
 
+// Game state
+var gameTime = 0;
+var isGameOver;
+
+// Stage image
+var img = new Image();
+
+
+//=================================================================================
+// Functions
+
+window.onload = window.onresize = function() {
+
+    var content = document.getElementById('content');
+    contentWidth = content.offsetWidth;
+    contentHeight = content.offsetHeight;
+    
+    // cria a proporcao baseado na largura do elemento
+    var sw = contentWidth / mugen.aspectRatio.x;
+    var sh = sw * mugen.aspectRatio.y;
+    
+    zoom = contentWidth / mugen.resolution.width;
+    
+    if ( sh > contentHeight ) {
+        //alert( 'sh é maior: ' + sh );
+        zoom = contentHeight / mugen.resolution.height;
+    }
+    
+    canvas.width = mugen.resolution.width * zoom;
+    canvas.height = mugen.resolution.height * zoom;
+
+    document.getElementById("content").appendChild( canvas ); //document.body.appendChild( canvas );
+    
+}
+//---------------------------------------------------------------------------------
+function main() {
+
+    var now = Date.now();
+    var dt = (now - lastTime) / 1000.0;
+    fps = Math.ceil(1000 / (now - lastTime));
+    update();
+    render();
+
+    lastTime = now;
+    requestAnimFrame(main);
+
+};
+//---------------------------------------------------------------------------------
 function init() {
 
     reset();
@@ -81,11 +104,7 @@ function init() {
     main();
 
 }
-
-// Game state
-var gameTime = 0;
-var isGameOver;
-
+//---------------------------------------------------------------------------------
 // Update game objects
 function update( dt ) {
 
@@ -93,24 +112,49 @@ function update( dt ) {
     //checkCollisions();
 
 };
-
-// Stage image
-var img = new Image();
-
+//---------------------------------------------------------------------------------
 function stage() {
 
     var n = 0;
-    if (canvasHeight == 180) { n = 1; }
-
+    if (mugen.resolution.height == 180) { n = 1; }
     img.src = 'stages/img' + n + '.png';
-    ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
+
+    ctx.drawImage(img, 0, 0, mugen.resolution.width, mugen.resolution.height);
 
 }
+//---------------------------------------------------------------------------------
+function debug() {
 
+    var container = document.getElementById('container');
+    containerWidth = container.offsetWidth;
+    containerHeight = container.offsetHeight;
+    
+    var content = document.getElementById('content');
+    contentWidth = content.offsetWidth;
+    contentHeight = content.offsetHeight;
+    
+    var canvas = document.getElementById('canvas');
+    canvasWidth = canvas.offsetWidth;
+    canvasHeight = canvas.offsetHeight;
+    
+    var system = '[SYSTEM] FPS:' + fps + ' - memoria: ' + player1.action + ' - processamento: ' + player2.action;
+    //var players = '[PLAYERS] player1.action: ' + player1.action + ' - player2.action: ' + player2.action;
+    var players = '[PLAYERS] P1 action: ' + player1.action + ' - P2 action: ' + player2.action;
+    var size = '[SIZE] page: ' + containerWidth + ',' + containerHeight + ' - div: ' + contentWidth + ',' + contentHeight + ' - canvas: ' + canvasWidth + ',' + canvasHeight;
+    
+    ctx.fillStyle = '#fff';
+    ctx.font = '8px  Lucida Console';
+    ctx.textBaseline = 'bottom';
+    ctx.fillText( system, 10, 20 );
+    ctx.fillText( players, 10, 40 );
+    ctx.fillText( size, 10, 60 );
+
+}
+//---------------------------------------------------------------------------------
 // Draw everything
 function render() {
 
-    ctx.clearRect( 0, 0, canvasWidth, canvasHeight );
+    ctx.clearRect( 0, 0, mugen.resolution.width, mugen.resolution.height );
 
     stage();
 
@@ -119,15 +163,10 @@ function render() {
     renderPlayer( player2 );
 
     // Infos debug
-    var text = 'FPS:' + fps + ' - action:' + player1.action + ' - Width:' + window.innerWidth + ' - Height:' + window.innerHeight;
-
-    ctx.fillStyle = '#fff';
-    ctx.font = '10px  Lucida Console';
-    ctx.textBaseline = 'bottom';
-    ctx.fillText( text, 10, 20 );
+    debug();
 
 };
-
+//---------------------------------------------------------------------------------
 function renderPlayer( player ) {
 
     ctx.save();
@@ -190,7 +229,7 @@ function renderPlayer( player ) {
     ctx.restore();
 
 }
-
+//---------------------------------------------------------------------------------
 // Reset game to original state
 function reset() {
 
@@ -202,16 +241,16 @@ function reset() {
 
     player1 = new player( resources[ 0 ] );
     player1.pos = {
-        x: canvasWidth / 2 - 90,
-        y: canvasHeight - 30
+        x: mugen.resolution.width / 2 - 90,
+        y: mugen.resolution.height - 30
     };
     player1.palette = player1.SFF.palette; //player1..ACT[ 0 ];
     player1.right = 1;
 
     player2 = new player( resources[ 1 ] ); // Another character
     player2.pos = {
-        x: canvasWidth / 2 + 90,
-        y: canvasHeight - 30
+        x: mugen.resolution.width / 2 + 90,
+        y: mugen.resolution.height - 30
     };
     player2.palette = player2.SFF.palette;
     player2.right = -1;
