@@ -1,0 +1,55 @@
+﻿
+----------------------------------------------------------------------------------------------------
+21:01 03-01-24
+
+semana da agua
+// semana molhada
+// encontre seus pokemons favoritos no evento mais aguardado
+
+
+
+
+----------------------------------------------------------------------------------------------------
+quais as maiores dificuldades para manter o jogo pokemon go
+
+
+
+
+layout{
+arceus{
+
+button-players(text=All Player Types){}
+veja todos os perfis de jogadores
+see all player profiles
+}
+
+}
+
+
+
+----------------------------------------------------------------------------------------------------
+22:11 03-01-24
+
+abrir pagina do desktop do celular, acessando o mesmo ip
+// ver como fazer isso
+
+192.168.1.103
+http://192.168.1.103:5500/index.html
+
+
+
+testar a pagina enviando pr o github
+// visualizar a pagina no tablet e celular e ver como aparenta
+//// testar no navegador do tablet e no internet explores, opera e ver
+se tudo funciona (baixar o safari pois a pagina pode ser visualizada do mac)
+
+
+
+como mudar tamanho da font no desktop e ter um tamanho bom para ser visualizado no smartphone, usando css
+
+
+
+
+
+
+
